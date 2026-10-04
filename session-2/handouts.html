@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Session 2 Handouts</title>
+<meta name="description" content="Copy-paste templates for AEPA Session 2: context pack, prompts, Mongolian quality checklist and client messages.">
+<link rel="icon" href="../assets/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FAFAF7;--ink:#14171C;--body:#374151;--muted:#6B7280;--line:#D9D9D4;--blue:#2F5BEA;--card:#FFFFFF;--code:#F0F0EB;--orange:#C2410C}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0F1115;--ink:#ECEDEF;--body:#C9CDD3;--muted:#9AA0A8;--line:#2A2E35;--blue:#7C9BFF;--card:#171A20;--code:#1F232A;--orange:#F08A5D}}
+:root[data-theme="dark"]{--bg:#0F1115;--ink:#ECEDEF;--body:#C9CDD3;--muted:#9AA0A8;--line:#2A2E35;--blue:#7C9BFF;--card:#171A20;--code:#1F232A;--orange:#F08A5D}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--body);font:17px/1.65 'Inter',Arial,sans-serif}
+.wrap{max-width:820px;margin:0 auto;padding:40px 16px 80px}
+header{display:flex;align-items:center;gap:14px}
+header img{width:44px;height:44px;border-radius:10px}
+header b{font:800 22px 'Manrope',Arial,sans-serif;letter-spacing:2px;color:var(--ink)}
+h1{font:800 34px/1.2 'Manrope',Arial,sans-serif;color:var(--ink);margin:18px 0 6px}
+h2{font:800 22px/1.3 'Manrope',Arial,sans-serif;color:var(--ink);margin:36px 0 8px}
+.sub{color:var(--muted);margin:0 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+.top b{color:var(--ink)}
+button{font:600 14px 'Inter',Arial,sans-serif;background:var(--blue);color:#fff;border:0;border-radius:8px;padding:7px 12px;cursor:pointer;flex:none}
+pre{margin:0;background:var(--code);color:var(--ink);border-radius:8px;padding:14px 16px;white-space:pre-wrap;word-break:break-word;font:14.5px/1.6 'JetBrains Mono',Consolas,monospace}
+ol,ul{padding-left:22px;margin:6px 0}
+li{margin:4px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+td,th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{color:var(--ink)}
+.bad{color:var(--orange);font-weight:600}.good{color:var(--blue);font-weight:600}
+a{color:var(--blue)}
+.tip{font-size:15px;color:var(--muted)}
+@media print{button{display:none}body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><img src="../assets/logo.jpg" alt="AEPA logo"><b>AEPA</b></header>
+  <h1>Session 2: Гарын авлага</h1>
+  <p class="sub">Хуулж аваад шууд хэрэглэ. Хаалтан доторх <b>[...]</b>, <b>{...}</b> хэсгийг өөрийнхөөрөө бөглө.</p>
+  <p class="tip">💡 Зөвлөгөө: Зааврыг англиар, материал болон гаралтыг монголоор өгөхөд AI ихэвчлэн илүү нарийн ажилладаг. Доорх prompt-ууд тийм бүтэцтэй.</p>
+
+  <h2>1. Контекст багцын загвар</h2>
+  <div class="card"><div class="top"><b>Context pack</b><button data-copy>Хуулах</button></div>
+<pre>CONTEXT PACK: [Бизнесийн нэр]
+
+ХЭН (Who)
+- Бизнес: [юу зардаг, хаана байрладаг, хэзээнээс]
+- Онцлог: [юугаараа бусдаас ялгаатай]
+
+ХЭНД (Audience)
+- Гол үйлчлүүлэгчид: [нас, хэн бэ]
+- Тэдний асуудал/хүсэл: [...]
+- Тэдний хэрэглэдэг үг хэллэг: [...]
+
+ЖИШЭЭ (Examples)
+- Хамгийн сайн явсан пост 1: [хуулж тавь]
+- Хамгийн сайн явсан пост 2: [...]
+- Хамгийн сайн явсан пост 3: [...]
+
+ДҮРЭМ (Rules)
+- Өнгө аяс: [найрсаг / албан / хөгжилтэй], "та" эсвэл "чи"
+- Эможи: [хэдээс ихгүй]
+- Хэрэглэхгүй үгс: [...]
+- Заавал зөв байх баримт: ажлын цаг [..], хаяг [..], утас [..]
+- Үнэ, хямдрал AI өөрөө бичихгүй.</pre></div>
+
+  <h2>2. Долоо хоногийн төлөвлөгөө (prompt)</h2>
+  <div class="card"><div class="top"><b>Weekly content calendar</b><button data-copy>Хуулах</button></div>
+<pre>[Paste the context pack here]
+
+Plan 7 Facebook posts for next week (Mon–Sun) for {business}.
+Goal: {goal, e.g. more students during exam week}.
+Mix: 2 product, 2 behind-the-scenes, 1 customer question, 1 poll, 1 weekly recap.
+Output a table: Day | Theme | Hook (first line, in Mongolian) | Image idea.
+Don't invent prices, discounts or facts.</pre></div>
+
+  <h2>3. Пост бичих + өөрийгөө засуулах (prompt)</h2>
+  <div class="card"><div class="top"><b>Write a post</b><button data-copy>Хуулах</button></div>
+<pre>Write {day}'s post from the calendar above.
+Write in natural, spoken Mongolian. Under {60} words, max 2 emojis, end with a question.
+Give 3 versions: playful, warm, short.
+
+Then review all 3 as a strict Mongolian editor.
+Which one sounds most like a real Mongolian person talking to a friend?
+Fix any stiff, formal or translated-sounding phrases. Return only the best one.</pre></div>
+
+  <div class="card"><div class="top"><b>Reusable template (Монгол хувилбар)</b><button data-copy>Хуулах</button></div>
+<pre>Чи {бизнес}-ийн сошиал медиа менежер.
+{тоо} ширхэг Facebook пост бич. Сэдэв: {сэдэв}.
+Үзэгчид: {хэнд}. Өнгө аяс: {найрсаг/хөгжилтэй}.
+Монгол ярианы хэлээр, пост бүр {60} үгнээс бага, 2-оос ихгүй эможи, төгсгөлд нь асуулт.
+Контекст багцыг ашигла. Үнэ, хямдрал, баримт өөрөө бүү зохио.</pre></div>
+
+  <h2>4. Монгол хэлний чанарын шалгалт</h2>
+  <div class="card">
+    <ol>
+      <li><b>Чангаар унш.</b> Найз чинь ингэж хэлэх үү?</li>
+      <li>Хиймэл эхлэл, орчуулга шиг хэллэг байхгүй.</li>
+      <li>Дүрэм, нөхцөлийн нөхцөл зөв.</li>
+      <li>Дунд нь санамсаргүй орос, англи үг байхгүй.</li>
+      <li>Баримт бүгд шалгагдсан: үнэ, цаг, хаяг, барааны нэр.</li>
+      <li>Эрүүл мэндийн болон "100% баталгаатай" гэх мэт амлалт байхгүй.</li>
+    </ol>
+    <table>
+      <tr><th class="bad">Хиймэл (AI)</th><th class="good">Байгалийн</th></tr>
+      <tr><td>Эрхэм хүндэт хэрэглэгч та бүхэндээ…</td><td>Сайн уу, найзуудаа 👋</td></tr>
+      <tr><td>Худалдан авснаар та … боломжтой</td><td>Авбал …</td></tr>
+      <tr><td>Манай байгууллага танд хүргэж байна</td><td>Манайд шинэ … ирлээ</td></tr>
+      <tr><td>Гайхалтай мөчүүдийг хамтдаа бүтээцгээе</td><td>Хамт ирээд сууя л даа</td></tr>
+    </table>
+  </div>
+
+  <h2>5. Клиентэд бичих мессеж</h2>
+  <div class="card"><div class="top"><b>Анхны мессеж</b><button data-copy>Хуулах</button></div>
+<pre>Сайн байна уу! Би [нэр]. Танай [бизнес]-ийн хуудсыг үзлээ, [нэг сайн зүйл] нь их таалагдсан.
+
+Танай хуудсанд зориулж нэг долоо хоногийн 7 пост үнэгүй хийчихлээ. Зураг, текст нь бэлэн. Үзээд таалагдвал цааш хамтран ажиллах уу? 🙂</pre></div>
+  <div class="card"><div class="top"><b>3 хоногийн дараах сануулга (нэг л удаа)</b><button data-copy>Хуулах</button></div>
+<pre>Сайн байна уу! Өмнө нь явуулсан 7 постоо үзэх завгүй байсан байх аа. Хүсвэл товчхон үзээд санал хэлээрэй, засаад өгье 🙂</pre></div>
+  <div class="card"><div class="top"><b>Сэтгэгдэл хүсэх</b><button data-copy>Хуулах</button></div>
+<pre>Хамтран ажилласанд баярлалаа! Надтай ажилласан тухайгаа 1–2 өгүүлбэрээр бичээд өгөх үү? Портфолиодоо оруулах гэсэн юм.</pre></div>
+
+  <h2>6. Аюулгүй ажиллах</h2>
+  <div class="card"><ul>
+    <li>Бизнесийн эзнээс <b>хэзээ ч нууц үг бүү ав.</b> Meta Business Suite → Settings → People-ээр хязгаарлагдмал эрх өгүүл, эсвэл постоо явуулаад өөрөөр нь тавиул.</li>
+    <li>Мөнгө, гэрээтэй холбоотой бүх зүйлийг <b>аав ээжтэйгээ хамт</b> хий.</li>
+    <li>"Эхлээд мөнгө шилжүүл", "хурдан баяжина" гэвэл бараг үргэлж луйвар.</li>
+  </ul></div>
+
+  <h2>Mission 2</h2>
+  <div class="card"><ol>
+    <li>Жинхэнэ нэг бизнес сонго (эзэн нь зөвшөөрсөн).</li>
+    <li>Контекст багцыг нь бич.</li>
+    <li>Долоо хоногоо хий: төлөвлөгөө, 7 пост, зураг.</li>
+    <li>Мессежийн загвараар явуул.</li>
+    <li><b>[өдөр]</b> гэхэд #showcase-д тавь: төлөвлөгөө, хамгийн сайн 2 пост, эзний хариу.</li>
+  </ol></div>
+</div>
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.closest('.card').querySelector('pre').innerText;
+    var done=function(){var o=b.textContent;b.textContent='Хуулсан ✓';setTimeout(function(){b.textContent=o},1400)};
+    if(navigator.clipboard){navigator.clipboard.writeText(t).then(done,function(){})}
+  });
+});
+</script>
+</body>
+</html>
