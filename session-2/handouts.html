@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Session 2 Handouts</title>
-<meta name="description" content="Copy-paste templates for AEPA Session 2: context pack, prompts, Mongolian quality checklist and client messages.">
+<meta name="description" content="AEPA Session 2 handouts: how AI thinks, fact-checking, tutor prompts and safe use.">
 <link rel="icon" href="../assets/logo.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@700;800&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -32,7 +32,6 @@ td,th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;verti
 th{color:var(--ink)}
 .bad{color:var(--orange);font-weight:600}.good{color:var(--blue);font-weight:600}
 a{color:var(--blue)}
-.tip{font-size:15px;color:var(--muted)}
 @media print{button{display:none}body{background:#fff}}
 </style>
 </head>
@@ -40,104 +39,100 @@ a{color:var(--blue)}
 <div class="wrap">
   <header><img src="../assets/logo.jpg" alt="AEPA logo"><b>AEPA</b></header>
   <h1>Session 2: Гарын авлага</h1>
-  <p class="sub">Хуулж аваад шууд хэрэглэ. Хаалтан доторх <b>[...]</b>, <b>{...}</b> хэсгийг өөрийнхөөрөө бөглө.</p>
-  <p class="tip">💡 Зөвлөгөө: Зааврыг англиар, материал болон гаралтыг монголоор өгөхөд AI ихэвчлэн илүү нарийн ажилладаг. Доорх prompt-ууд тийм бүтэцтэй.</p>
+  <p class="sub">Inside the machine: AI яаж боддог, яаж шалгах, яаж суралцах. <a href="./">Слайд</a></p>
 
-  <h2>1. Контекст багцын загвар</h2>
-  <div class="card"><div class="top"><b>Context pack</b><button data-copy>Хуулах</button></div>
-<pre>CONTEXT PACK: [Бизнесийн нэр]
-
-ХЭН (Who)
-- Бизнес: [юу зардаг, хаана байрладаг, хэзээнээс]
-- Онцлог: [юугаараа бусдаас ялгаатай]
-
-ХЭНД (Audience)
-- Гол үйлчлүүлэгчид: [нас, хэн бэ]
-- Тэдний асуудал/хүсэл: [...]
-- Тэдний хэрэглэдэг үг хэллэг: [...]
-
-ЖИШЭЭ (Examples)
-- Хамгийн сайн явсан пост 1: [хуулж тавь]
-- Хамгийн сайн явсан пост 2: [...]
-- Хамгийн сайн явсан пост 3: [...]
-
-ДҮРЭМ (Rules)
-- Өнгө аяс: [найрсаг / албан / хөгжилтэй], "та" эсвэл "чи"
-- Эможи: [хэдээс ихгүй]
-- Хэрэглэхгүй үгс: [...]
-- Заавал зөв байх баримт: ажлын цаг [..], хаяг [..], утас [..]
-- Үнэ, хямдрал AI өөрөө бичихгүй.</pre></div>
-
-  <h2>2. Долоо хоногийн төлөвлөгөө (prompt)</h2>
-  <div class="card"><div class="top"><b>Weekly content calendar</b><button data-copy>Хуулах</button></div>
-<pre>[Paste the context pack here]
-
-Plan 7 Facebook posts for next week (Mon–Sun) for {business}.
-Goal: {goal, e.g. more students during exam week}.
-Mix: 2 product, 2 behind-the-scenes, 1 customer question, 1 poll, 1 weekly recap.
-Output a table: Day | Theme | Hook (first line, in Mongolian) | Image idea.
-Don't invent prices, discounts or facts.</pre></div>
-
-  <h2>3. Пост бичих + өөрийгөө засуулах (prompt)</h2>
-  <div class="card"><div class="top"><b>Write a post</b><button data-copy>Хуулах</button></div>
-<pre>Write {day}'s post from the calendar above.
-Write in natural, spoken Mongolian. Under {60} words, max 2 emojis, end with a question.
-Give 3 versions: playful, warm, short.
-
-Then review all 3 as a strict Mongolian editor.
-Which one sounds most like a real Mongolian person talking to a friend?
-Fix any stiff, formal or translated-sounding phrases. Return only the best one.</pre></div>
-
-  <div class="card"><div class="top"><b>Reusable template (Монгол хувилбар)</b><button data-copy>Хуулах</button></div>
-<pre>Чи {бизнес}-ийн сошиал медиа менежер.
-{тоо} ширхэг Facebook пост бич. Сэдэв: {сэдэв}.
-Үзэгчид: {хэнд}. Өнгө аяс: {найрсаг/хөгжилтэй}.
-Монгол ярианы хэлээр, пост бүр {60} үгнээс бага, 2-оос ихгүй эможи, төгсгөлд нь асуулт.
-Контекст багцыг ашигла. Үнэ, хямдрал, баримт өөрөө бүү зохио.</pre></div>
-
-  <h2>4. Монгол хэлний чанарын шалгалт</h2>
-  <div class="card">
-    <ol>
-      <li><b>Чангаар унш.</b> Найз чинь ингэж хэлэх үү?</li>
-      <li>Хиймэл эхлэл, орчуулга шиг хэллэг байхгүй.</li>
-      <li>Дүрэм, нөхцөлийн нөхцөл зөв.</li>
-      <li>Дунд нь санамсаргүй орос, англи үг байхгүй.</li>
-      <li>Баримт бүгд шалгагдсан: үнэ, цаг, хаяг, барааны нэр.</li>
-      <li>Эрүүл мэндийн болон "100% баталгаатай" гэх мэт амлалт байхгүй.</li>
-    </ol>
-    <table>
-      <tr><th class="bad">Хиймэл (AI)</th><th class="good">Байгалийн</th></tr>
-      <tr><td>Эрхэм хүндэт хэрэглэгч та бүхэндээ…</td><td>Сайн уу, найзуудаа 👋</td></tr>
-      <tr><td>Худалдан авснаар та … боломжтой</td><td>Авбал …</td></tr>
-      <tr><td>Манай байгууллага танд хүргэж байна</td><td>Манайд шинэ … ирлээ</td></tr>
-      <tr><td>Гайхалтай мөчүүдийг хамтдаа бүтээцгээе</td><td>Хамт ирээд сууя л даа</td></tr>
-    </table>
-  </div>
-
-  <h2>5. Клиентэд бичих мессеж</h2>
-  <div class="card"><div class="top"><b>Анхны мессеж</b><button data-copy>Хуулах</button></div>
-<pre>Сайн байна уу! Би [нэр]. Танай [бизнес]-ийн хуудсыг үзлээ, [нэг сайн зүйл] нь их таалагдсан.
-
-Танай хуудсанд зориулж нэг долоо хоногийн 7 пост үнэгүй хийчихлээ. Зураг, текст нь бэлэн. Үзээд таалагдвал цааш хамтран ажиллах уу? 🙂</pre></div>
-  <div class="card"><div class="top"><b>3 хоногийн дараах сануулга (нэг л удаа)</b><button data-copy>Хуулах</button></div>
-<pre>Сайн байна уу! Өмнө нь явуулсан 7 постоо үзэх завгүй байсан байх аа. Хүсвэл товчхон үзээд санал хэлээрэй, засаад өгье 🙂</pre></div>
-  <div class="card"><div class="top"><b>Сэтгэгдэл хүсэх</b><button data-copy>Хуулах</button></div>
-<pre>Хамтран ажилласанд баярлалаа! Надтай ажилласан тухайгаа 1–2 өгүүлбэрээр бичээд өгөх үү? Портфолиодоо оруулах гэсэн юм.</pre></div>
-
-  <h2>6. Аюулгүй ажиллах</h2>
+  <h2>1. AI яаж уншдаг, санадаг</h2>
   <div class="card"><ul>
-    <li>Бизнесийн эзнээс <b>хэзээ ч нууц үг бүү ав.</b> Meta Business Suite → Settings → People-ээр хязгаарлагдмал эрх өгүүл, эсвэл постоо явуулаад өөрөөр нь тавиул.</li>
-    <li>Мөнгө, гэрээтэй холбоотой бүх зүйлийг <b>аав ээжтэйгээ хамт</b> хий.</li>
-    <li>"Эхлээд мөнгө шилжүүл", "хурдан баяжина" гэвэл бараг үргэлж луйвар.</li>
+    <li><b>Токен:</b> AI үг биш, жижиг хэсэг уншдаг. Монгол үг илүү олон хэсэгт хуваагддаг тул монголоор удаан, алдаа ихтэй байж болно. Тоолох, үсэглэх нь сул тал.</li>
+    <li><b>Context window:</b> нэг чат доторх бүх юм. Том ч хязгаартай, урт чатын дунд хэсгийг амархан орхигдуулдаг.</li>
+  </ul>
+  <p><b>3 дүрэм:</b></p>
+  <ol>
+    <li>Сэдэв солигдвол → шинэ чат.</li>
+    <li>Чухал мэдээлэл, дүрмээ → эхэнд нь.</li>
+    <li>Чат хэт уртсавал → "Одоог хүртэл юу шийдсэнийг товчил" → шинэ чатад хуулж тавь.</li>
+  </ol></div>
+
+  <h2>2. Буруу ойлголт ба бодит байдал</h2>
+  <div class="card"><table>
+    <tr><th class="bad">Буруу ойлголт</th><th class="good">Бодит байдал</th></tr>
+    <tr><td>Надтай ярихдаа суралцдаг</td><td>Тархи нь тогтсон. "Memory" бол зүгээр тэмдэглэл.</td></tr>
+    <tr><td>Бүх юмыг интернетээс хайдаг</td><td>Хайлтын хэрэгсэл асаалттай үед л хайна.</td></tr>
+    <tr><td>Хүн шиг ойлгодог</td><td>Хэв маягаас магадлалтай текст таамагладаг.</td></tr>
+    <tr><td>Нэг асуултад үргэлж ижил хариулт</td><td>Санамсаргүй байдалтай. Баримт өөр өөр гарвал улаан гэрэл.</td></tr>
+    <tr><td>Өнөөдрийн мэдээг мэднэ</td><td>Cutoff огноо хүртэл л мэднэ. Сүүлийн үеийн юм бол хайлтаа асаа.</td></tr>
+  </table></div>
+
+  <h2>3. AI хаана хамгийн их зохиодог вэ</h2>
+  <div class="card"><ul>
+    <li><span class="bad">Өндөр эрсдэл:</span> нэр, ишлэл, огноо · холбоос, эх сурвалж · тоо, тооцоо · <b>Монголын орон нутгийн мэдээлэл</b> · эрүүл мэнд, хууль, мөнгө</li>
+    <li><span class="good">Бага эрсдэл:</span> өөрийнхөө өгсөн текстийг засуулах, товчлуулах</li>
   </ul></div>
+
+  <h2>4. 4 алхамт шалгалт</h2>
+  <div class="card"><div class="top"><b>Fact-check prompt</b><button data-copy>Хуулах</button></div>
+<pre>Review your last answer.
+1. How confident are you in each claim (high / medium / low)?
+2. Which parts might be wrong or outdated?
+3. List the sources I should check, and what exactly to look for in each.</pre>
+  <ol style="margin-top:12px">
+    <li><b>Өөрөөр нь эргэлзүүл:</b> "Хэр итгэлтэй байна? Аль нь буруу байж магадгүй?"</li>
+    <li><b>Эх сурвалжаа нээ:</b> холбоос нээгдэж байна уу? Нээрээ тэгж бичсэн үү?</li>
+    <li><b>Хөндлөн шалга:</b> өөр найдвартай эх сурвалж эсвэл өөр AI.</li>
+    <li><b>Монгол мэдээлэл → монгол эх сурвалж:</b> албан ёсны сайт, мэдээ, мэддэг хүн.</li>
+  </ol></div>
+
+  <h2>5. Хувийн багшийн prompt</h2>
+  <div class="card"><div class="top"><b>Tutor prompt (English)</b><button data-copy>Хуулах</button></div>
+<pre>I'm 15 and I'm learning [topic]. My level: [beginner / some basics].
+Be my tutor. Don't give me the answers.
+1. Explain the core idea in simple words with one real example.
+2. Ask me one question at a time and wait for my answer.
+3. If I'm wrong, show me where my thinking went wrong.
+4. Make each question a little harder than the last.
+5. After 5 questions, tell me what I understand and what to practise next.
+Reply in Mongolian.</pre></div>
+  <div class="card"><div class="top"><b>Багшийн prompt (Монгол)</b><button data-copy>Хуулах</button></div>
+<pre>Би 15 настай, [сэдэв]-ийг сурч байна. Миний түвшин: [анхан / жаахан мэднэ].
+Миний багш бол. Хариуг нь бүү хэл.
+1. Гол санааг энгийн үгээр, нэг бодит жишээтэй тайлбарла.
+2. Нэг удаад нэг асуулт асуугаад миний хариуг хүлээ.
+3. Буруу бол миний бодол хаана алдсаныг харуул.
+4. Асуулт бүрийг өмнөхөөсөө жаахан хэцүү болго.
+5. 5 асуултын дараа юуг ойлгосон, юуг дахин дадлагажуулахыг хэл.</pre></div>
+  <div class="card"><div class="top"><b>Бусад арга</b><button data-copy>Хуулах</button></div>
+<pre>Explain [topic] like I'm 15: simple words, one real-life example from Mongolia.
+
+Don't answer. Ask me questions until I figure it out myself.
+
+I'll explain [topic] back to you. Find the gaps and mistakes in my explanation.</pre></div>
+  <div class="card"><div class="top"><b>Гэрийн даалгаврын зургийн prompt</b><button data-copy>Хуулах</button></div>
+<pre>Don't solve this. Tell me which concept this problem tests, and give me a hint for the first step only.</pre></div>
+
+  <h2>6. Чатботод хэзээ ч бичихгүй</h2>
+  <div class="card"><ul>
+    <li>Нууц үг, мессежээр ирдэг код</li>
+    <li>Регистрийн дугаар, паспорт, картын дугаар</li>
+    <li>Бусдын зураг, чат, утас, хаяг (зөвшөөрөлгүй)</li>
+    <li>Дүн, эмнэлгийн мэдээлэл, гэр бүлийн мөнгөний асуудал</li>
+    <li>Олон нийтэд гарахад дургүй бүх юм</li>
+  </ul>
+  <p>💡 Тохиргоондоо "чатыг сургалтад ашиглах"-ыг унтраах сонголт байгаа эсэхийг шалга.</p></div>
+
+  <h2>7. AI-г зөв хэрэглэх 4 дүрэм</h2>
+  <div class="card"><ol>
+    <li><b>Жинхэнэ хүний deepfake хэзээ ч бүү хий.</b> Зөвшөөрөлгүй хуурамч зураг, видео, дуу хоолой.</li>
+    <li><b>Нэг талыг барихыг анзаар.</b> Хэний үзэл бодол дутуу байна?</li>
+    <li><b>Бусдын бүтээлийг хүндэл.</b> Хуулаад өөрийнх гэж бүү хэл.</li>
+    <li><b>Нуухгүй.</b> AI хэрэглэсэн бол хэл, сургуулийн дүрмээ дага.</li>
+  </ol></div>
 
   <h2>Mission 2</h2>
   <div class="card"><ol>
-    <li>Жинхэнэ нэг бизнес сонго (эзэн нь зөвшөөрсөн).</li>
-    <li>Контекст багцыг нь бич.</li>
-    <li>Долоо хоногоо хий: төлөвлөгөө, 7 пост, зураг.</li>
-    <li>Мессежийн загвараар явуул.</li>
-    <li><b>[өдөр]</b> гэхэд #showcase-д тавь: төлөвлөгөө, хамгийн сайн 2 пост, эзний хариу.</li>
+    <li>Сурмаар байгаа нэг сэдэв, ур чадвар сонго.</li>
+    <li>Багшийн prompt-оор 3 удаа (тус бүр ~20 мин) суралц.</li>
+    <li>AI-г алдаа гаргаж байхад нь барьж, 4 алхамт шалгалтаар батал.</li>
+    <li><b>[өдөр]</b> гэхэд #showcase-д тавь: юу сурсан, хамгийн сайн prompt, барьсан алдаа.</li>
   </ol></div>
 </div>
 <script>

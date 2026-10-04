@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AEPA Session 3</title>
+<meta name="description" content="AEPA Session 3: From prompt to workflow. Build your first AI content system and land your first client.">
+<link rel="icon" href="../assets/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF7; --bg2:#F0F0EB; --ink:#14171C; --body:#4B5563; --muted:#6B7280;
+  --line:#D9D9D4; --blue:#2F5BEA; --blue-soft:#E8EEFD; --navy:#1E3A8A; --orange:#C2410C;
+  --stage:#E6E6E1; --panel:#FFFFFF; --panel-ink:#14171C; --ui:#14171C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --stage:#0E1014; --panel:#1A1D23; --panel-ink:#E8E9EC; --ui:#E8E9EC; }
+}
+:root[data-theme="dark"]{ --stage:#0E1014; --panel:#1A1D23; --panel-ink:#E8E9EC; --ui:#E8E9EC; }
+
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--stage);font-family:'Inter',Arial,sans-serif;overflow:hidden;color:var(--ui)}
+.deck{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+.slide{position:absolute;inset:0;background:var(--bg);color:var(--ink);padding:144px 128px 150px;display:none;flex-direction:column;gap:36px;overflow:hidden}
+.slide.active{display:flex}
+.slide.alt{background:var(--bg2)}
+.slide aside.notes{display:none}
+h1,h2,h3{font-family:'Manrope',Arial,sans-serif;margin:0;color:var(--ink)}
+p{margin:0}
+.brand{position:absolute;left:128px;top:44px;display:flex;align-items:center;gap:16px;font:800 28px/1 'Manrope',Arial,sans-serif;letter-spacing:3px}
+.brand img{width:56px;height:56px;border-radius:12px;object-fit:cover}
+.foot{position:absolute;left:128px;right:128px;bottom:56px;display:flex;justify-content:space-between;font-size:24px;color:var(--muted)}
+.eyebrow{font-size:24px;font-weight:600;color:var(--blue)}
+.t{font-size:72px;font-weight:700;line-height:1.1;letter-spacing:-1px}
+.lead{font-size:30px;line-height:1.45;color:var(--body)}
+.small{font-size:24px;line-height:1.45;color:var(--body)}
+.row{display:flex;gap:48px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 48px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:36px 64px}
+.col{flex:1;display:flex;flex-direction:column;gap:14px;border-top:1px solid var(--line);padding-top:24px;min-width:0}
+.alt .col{border-top-color:#C9C9C2}
+.col.hi{border-top:2px solid var(--blue)}
+.col.warn{border-top:2px solid var(--orange)}
+.num{font:800 44px/1 'Manrope',Arial,sans-serif;color:var(--blue)}
+h3{font-size:32px;font-weight:700;line-height:1.25}
+.mono{font-family:'JetBrains Mono',Consolas,monospace;font-size:23px;line-height:1.55;background:var(--bg2);padding:26px 32px;white-space:pre-wrap;color:var(--ink);margin:0}
+.alt .mono{background:#FFFFFF;border:1px solid var(--line)}
+.callout{font-size:28px;line-height:1.45;background:var(--bg2);border-left:4px solid var(--blue);padding:24px 32px}
+.alt .callout{background:#FFFFFF}
+.callout.warn{border-left-color:var(--orange)}
+.spacer{flex:1}
+.statement{font:700 44px/1.25 'Manrope',Arial,sans-serif;color:var(--ink)}
+.statement span{color:var(--blue)}
+table.tb{border-collapse:collapse;width:100%;font-size:25px;color:var(--ink)}
+table.tb th,table.tb td{text-align:left;padding:13px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+table.tb th{font-weight:700;border-bottom:2px solid var(--ink)}
+table.tb tr.hl td{background:var(--blue-soft)}
+.chip{display:inline-block;font-size:22px;font-weight:600;color:var(--navy);background:var(--blue-soft);padding:8px 16px;border-radius:999px}
+.steps{display:flex;gap:16px;align-items:stretch}
+.step{flex:1;display:flex;flex-direction:column;gap:10px;border-top:2px solid var(--blue);padding-top:20px;min-width:0}
+.step .k{font:800 36px/1 'Manrope',Arial,sans-serif;color:var(--blue)}
+.step h3{font-size:28px}
+.arrow{align-self:center;color:#A9C0F7;font:800 44px/1 'Manrope',Arial,sans-serif}
+.box{background:#FFFFFF;border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:16px}
+.bad{color:var(--orange);font-weight:700}
+.good{color:var(--blue);font-weight:700}
+.reveal{opacity:0;transition:opacity .25s}
+.reveal.on{opacity:1}
+.quiz{display:flex;flex-direction:column;gap:22px}
+.q{display:flex;gap:28px;align-items:baseline;border-top:1px solid var(--line);padding-top:22px;cursor:pointer}
+.q .qn{font:800 36px/1 'Manrope',Arial,sans-serif;color:var(--blue);width:56px;flex:none}
+.q .qq{font:700 34px/1.3 'Manrope',Arial,sans-serif;color:var(--ink)}
+.q .qa{font-size:26px;line-height:1.45;color:var(--body);margin-top:10px}
+.q .hint{font-size:20px;color:var(--muted);margin-top:8px}
+
+/* UI */
+.ui{position:fixed;right:16px;bottom:16px;display:flex;gap:8px;align-items:center;z-index:5;font-size:14px}
+.ui button{font:600 14px 'Inter',Arial,sans-serif;background:var(--panel);color:var(--panel-ink);border:1px solid rgba(127,127,127,.35);border-radius:8px;padding:8px 12px;cursor:pointer}
+.ui .count{background:var(--panel);color:var(--panel-ink);border-radius:8px;padding:8px 12px;border:1px solid rgba(127,127,127,.35)}
+.notes-panel{position:fixed;left:16px;right:16px;bottom:64px;max-height:42vh;overflow:auto;background:var(--panel);color:var(--panel-ink);border-radius:12px;padding:18px 22px;font-size:16px;line-height:1.6;box-shadow:0 10px 40px rgba(0,0,0,.25);display:none;z-index:4}
+.notes-panel.open{display:block}
+.notes-panel .time{font-weight:700;color:#2F5BEA;margin-bottom:6px}
+.notes-panel p{margin:0 0 10px}
+.help{position:fixed;left:16px;bottom:16px;font-size:13px;color:var(--ui);opacity:.6;z-index:5}
+@media (max-width:640px){.help{display:none}.ui button{padding:8px 10px}}
+
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{overflow:visible;height:auto;background:#fff}
+  .deck{position:static;transform:none!important;box-shadow:none;width:1920px;height:auto}
+  .slide{display:flex!important;position:relative;width:1920px;height:1080px;page-break-after:always;break-after:page}
+  .reveal{opacity:1}
+  .ui,.notes-panel,.help{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- 1 COVER -->
+<section class="slide" data-time="1:00" style="padding:128px;justify-content:space-between">
+  <div style="display:flex;align-items:center;gap:28px">
+    <img src="../assets/logo.jpg" alt="AEPA logo" style="width:112px;height:112px;border-radius:24px;object-fit:cover">
+    <p style="font:800 48px/1 'Manrope',Arial,sans-serif;letter-spacing:6px">AEPA</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:32px">
+    <div style="width:120px;height:8px;background:var(--blue)"></div>
+    <h1 style="font-size:128px;font-weight:800;line-height:1.05;letter-spacing:-3px">From prompt<br>to workflow.</h1>
+    <h2 style="font-size:50px;font-weight:600;line-height:1.2;color:#374151;max-width:1500px">Build your first AI content system, and land your first client</h2>
+    <p style="font-size:28px;color:var(--muted)">Session 3 · Hands-on · Bring your laptop or phone</p>
+  </div>
+  <aside class="notes">
+    <p>За, сайн байцгаана уу залуусаа! AEPA-гийн 3-р хичээлд тавтай морил.</p>
+    <p>Өмнөх хоёр хичээлээр бид AI яаж ажилладаг, prompt, контекст, бас AI-г яаж зөв, аюулгүй ашиглах вэ гэдгийг үзсэн. Тэр бол <b>мэдэх</b> хэсэг байсан. Өнөөдөр бол <b>хийх</b> хэсэг.</p>
+    <p>Хичээл дуусахад та нар бүгд нэг ажилладаг систем, бас анхны клиент рүүгээ явуулах бэлэн мессежтэй болчихсон байна. Тийм болохоор утас, ноутбукаа гаргаад бэлдчих. Өнөөдөр хамт хийнэ. За, эхэлье.</p>
+  </aside>
+</section>
+
+<!-- 2 AGENDA -->
+<section class="slide" data-time="1:00">
+  <p class="eyebrow">Today</p>
+  <h2 class="t">From knowing to doing</h2>
+  <div class="grid3" style="margin-top:8px">
+    <div class="col"><p class="num">01</p><h3>Showcase review</h3><p class="small">What worked in your #showcase prompts, and why.</p></div>
+    <div class="col"><p class="num">02</p><h3>What a workflow is</h3><p class="small">Turn one good prompt into a reusable system.</p></div>
+    <div class="col hi"><p class="num">03</p><h3>Live build</h3><p class="small">A full week of posts for a café, start to finish.</p></div>
+    <div class="col"><p class="num">04</p><h3>Quality control</h3><p class="small">Make AI Mongolian sound like a real person.</p></div>
+    <div class="col"><p class="num">05</p><h3>Your first client</h3><p class="small">Package it, message the owner, get a testimonial.</p></div>
+    <div class="col"><p class="num">06</p><h3>Mission 3</h3><p class="small">Deliver a free week of content to a real business.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Өнөөдөр зургаан хэсэгтэй.</p>
+    <p>Эхлээд та нарын #showcase-д тавьсан ажлуудыг харна. Дараа нь workflow гэж юу вэ гэдгийг ойлгоод, нэг сайн prompt-ыг яаж дахин дахин ашиглагдах систем болгохыг харна.</p>
+    <p>Хамгийн том хэсэг нь гурав дахь нь. <b>Нэг кафены долоо хоногийн постыг эхнээс нь дуустал хамтдаа хийнэ.</b></p>
+    <p>Тэгээд AI-ийн монгол хэлийг жинхэнэ хүн ярьж байгаа юм шиг болгох, анхны клиентээ яаж олох, тэгээд 3-р даалгавар.</p>
+  </aside>
+</section>
+
+<!-- 3 SHOWCASE -->
+<section class="slide" data-time="10:00">
+  <p class="eyebrow">01 · Showcase review</p>
+  <h2 class="t">Reviewing your #showcase prompts</h2>
+  <p class="lead">For each submission, we look at the prompt first, then the result.</p>
+  <div class="row">
+    <div class="col hi"><p class="num">Keep</p><h3>What's working?</h3><p class="small">Which of the 6 parts are strong? Role, task, context, examples, format, constraints.</p></div>
+    <div class="col"><p class="num" style="color:var(--orange)">Fix</p><h3>What's weak?</h3><p class="small">Missing context? No format? Stiff Mongolian? Invented facts?</p></div>
+    <div class="col"><p class="num" style="color:var(--navy)">Add</p><h3>One upgrade</h3><p class="small">The single change that would improve it most. Just one.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="callout">We review <b>prompts, not people.</b> Every prompt here can get better, including mine.</p>
+  <aside class="notes">
+    <p><i>[Өмнө нь #showcase-ээс 3 шилдэг ажлыг сонгоод, дэлгэцэн дээр нээх бэлэн болгочих.]</i></p>
+    <p>Эхлээд #showcase-ээс эхэлье. Ажлаа тавьсан бүх хүнд баярлалаа, нээрээ.</p>
+    <p>Ажил болгоныг гурван асуултаар харна. <b>Keep</b>, юу нь сайн байна, үүнийг хадгална. <b>Fix</b>, юу нь сул байна, үүнийг засна. <b>Add</b>, ганцхан юм нэмэх бол юу нэмэх вэ.</p>
+    <p>Анхаарах юм: бид үр дүнг нь биш, эхлээд <b>prompt</b>-ыг нь харна. Учир нь сайн үр дүн сайн prompt-оос гардаг.</p>
+    <p><i>[Нэг ажил тутамд 3 минут. Эзнээс нь 'яагаад ингэж бичсэн бэ?' гэж асуу. Тэгээд ангиас 'Fix'-ийг нь асуу.]</i></p>
+    <p>Бас нэг юм: бид хүнийг биш, prompt-ыг шүүмжилж байгаа шүү. Миний prompt ч гэсэн сайжрах газар байдаг.</p>
+  </aside>
+</section>
+
+<!-- 4 QUIZ -->
+<section class="slide alt" data-time="3:00">
+  <p class="eyebrow">Quick recap · tap a question to reveal</p>
+  <h2 class="t">3 questions from Session 1</h2>
+  <div class="quiz">
+    <div class="q" data-reveal><p class="qn">1</p><div><p class="qq">What are the 6 parts of a great prompt?</p><p class="qa reveal">Role · Task · Context · Examples · Format · Constraints</p></div></div>
+    <div class="q" data-reveal><p class="qn">2</p><div><p class="qq">Prompt engineering vs. context engineering?</p><p class="qa reveal">Prompt = <b>how you ask</b> (improves one answer). Context = <b>what AI can see</b> (improves every answer after).</p></div></div>
+    <div class="q" data-reveal><p class="qn">3</p><div><p class="qq">Which layers is the money in, and which one are we building today?</p><p class="qa reveal">Layers 2–4. Today: <b>layer 4, Workflow</b>.</p></div></div>
+  </div>
+  <aside class="notes">
+    <p>За, хурдан шалгалт. Гараа өргөөд хариулаарай.</p>
+    <p><b>Нэгдүгээр асуулт:</b> сайн prompt-ын зургаан хэсэг юу вэ? <i>[Хүлээ, тэгээд дарж хариуг гарга.]</i> Дүр, даалгавар, контекст, жишээ, формат, хязгаарлалт. Сайн байна.</p>
+    <p><b>Хоёрдугаар:</b> prompt, контекст хоёрын ялгаа юу вэ? Prompt бол яаж асуух, нэг хариултыг сайжруулна. Контекст бол AI юу харж байна, цаашдын бүх хариултыг сайжруулна.</p>
+    <p><b>Гуравдугаар:</b> мөнгө аль давхаргад байна вэ? 2-оос 4. Тэгээд өнөөдөр бид <b>4-р давхарга, workflow</b>-оо хийнэ.</p>
+  </aside>
+</section>
+
+<!-- 5 WORKFLOW -->
+<section class="slide" data-time="4:00">
+  <p class="eyebrow">02 · What a workflow is</p>
+  <h2 class="t">A workflow is a recipe you can repeat</h2>
+  <div class="steps">
+    <div class="step"><p class="k">Input</p><h3>What goes in</h3><p class="small">Context pack + this week's news: a new drink, exam week.</p></div>
+    <p class="arrow">→</p>
+    <div class="step"><p class="k">Steps</p><h3>Fixed prompts</h3><p class="small">Plan the week → write 7 posts → make images.</p></div>
+    <p class="arrow">→</p>
+    <div class="step" style="border-top-color:var(--orange)"><p class="k" style="color:var(--orange)">Checks</p><h3>Human review</h3><p class="small">Facts, tone, Mongolian. Approve before anything goes out.</p></div>
+    <p class="arrow">→</p>
+    <div class="step"><p class="k">Output</p><h3>What comes out</h3><p class="small">7 posts with images, scheduled on Facebook and Instagram.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="row">
+    <p class="callout" style="flex:1"><b>Prompting</b> = cooking one meal.<br><b>Workflow</b> = running the restaurant.</p>
+    <p class="callout" style="flex:1">Same quality every week, in a fraction of the time. That consistency is <b>what clients pay for</b>.</p>
+  </div>
+  <aside class="notes">
+    <p>За, workflow гэж юу вэ? Энгийнээр хэлбэл <b>давтагддаг жор</b>.</p>
+    <p>Дөрвөн хэсэгтэй. <b>Оролт</b>, юу орж байна: контекст багц, тэгээд энэ долоо хоногийн мэдээ. Жишээ нь шинэ ундаа гарсан, шалгалтын долоо хоног эхэлсэн гэх мэт.</p>
+    <p><b>Алхмууд</b>: тогтсон prompt-ууд. Эхлээд долоо хоногоо төлөвлөнө, дараа нь 7 пост бичнэ, дараа нь зураг хийнэ.</p>
+    <p><b>Шалгалт</b>: хүн шалгана. Баримт, өнгө аяс, монгол хэл. Юу ч гарахаас өмнө өөрөө батална.</p>
+    <p><b>Гаралт</b>: 7 пост зурагтайгаа, Facebook, Instagram-д цагтаа тавигдахаар бэлэн.</p>
+    <p>Хоолоор жишээ авбал prompt бичих бол нэг хоол хийх. Workflow бол ресторан ажиллуулах. Ресторан өдөр болгон адилхан амттай хоол гаргадаг шүү дээ. Клиент яг тэр <b>тогтвортой чанарын</b> төлөө мөнгө төлдөг.</p>
+  </aside>
+</section>
+
+<!-- 6 TEMPLATE -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">02 · What a workflow is</p>
+  <h2 class="t">Turn your best prompt into a template</h2>
+  <div class="row" style="align-items:flex-start">
+    <pre class="mono" style="flex:1.5">You are a social media manager for <b style="color:var(--blue)">{business}</b>.
+Write <b style="color:var(--blue)">{number}</b> Facebook posts about <b style="color:var(--blue)">{topic}</b>.
+Audience: <b style="color:var(--blue)">{audience}</b>. Tone: <b style="color:var(--blue)">{tone}</b>.
+Write in Mongolian, each under <b style="color:var(--blue)">{length}</b> words,
+max 2 emojis, end with a question.
+Use the context pack. Don't invent prices,
+discounts or facts.</pre>
+    <div class="col hi" style="flex:1">
+      <h3>The words in {brackets} change</h3>
+      <p class="small">Everything else stays the same every week.</p>
+      <h3 style="margin-top:12px">Why it matters</h3>
+      <p class="small">No more starting from zero. Same quality for every client. Easy to hand to a teammate.</p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="callout">Your <b>prompt library</b> = your templates. It's the most valuable thing you'll build this month.</p>
+  <aside class="notes">
+    <p>Workflow-ийн хамгийн эхний алхам бол сайн prompt-оо <b>загвар</b> болгох.</p>
+    <p>Хараарай. Цэнхэр хаалтанд байгаа үгс, бизнес, тоо, сэдэв, үзэгчид, өнгө аяс, урт, долоо хоног болгон солигдоно. Бусад нь яг хэвээрээ.</p>
+    <p>Тэгэхээр дараагийн долоо хоногт, эсвэл шинэ клиент ирэхэд хоосноос эхлэхгүй. Зүгээр хаалтан доторх үгсийг солиод л явна.</p>
+    <p>Энэ чинь багийн найздаа өгөхөд ч амар. Ижилхэн загвар, ижилхэн чанар. Өнгөрсөн удаа хэлсэн <b>prompt-ын сан</b> гэдэг чинь яг энэ. Энэ сард бүтээх хамгийн үнэтэй юм чинь.</p>
+  </aside>
+</section>
+
+<!-- 7 WHERE IT LIVES -->
+<section class="slide alt" data-time="2:00">
+  <p class="eyebrow">02 · What a workflow is</p>
+  <h2 class="t">Where your workflow lives</h2>
+  <div class="row">
+    <div class="col hi"><p class="num">A</p><h3>Claude Project</h3><p class="small">Instructions + context pack + example files in one place. Every chat inside it already knows the business.</p></div>
+    <div class="col"><p class="num">B</p><h3>Custom GPT</h3><p class="small">The same idea in ChatGPT: saved instructions and files, reused with one click.</p></div>
+    <div class="col"><p class="num">C</p><h3>A simple doc</h3><p class="small">Google Doc or Notion: context pack + templates. Copy, paste, fill the blanks. Free and works anywhere.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="callout">One <b>Project or doc per client</b>. Name it clearly: "Мөрөн кафе: weekly posts".</p>
+  <aside class="notes">
+    <p>За, тэр загвар, контекст багцаа хаана хадгалах вэ? Гурван сонголт бий.</p>
+    <p><b>A, Claude Project.</b> Заавар, контекст багц, жишээ файлууд нэг дор. Project дотор нээсэн чат болгон тэр бизнесийг аль хэдийн мэдэж байдаг.</p>
+    <p><b>B, Custom GPT.</b> ChatGPT дээрх яг адилхан санаа.</p>
+    <p><b>C, энгийн document.</b> Google Doc, Notion. Хуулаад, тавиад, хаалтаа бөглөнө. Үнэгүй, хаана ч ажиллана.</p>
+    <p>Зарим нь төлбөртэй багц шаарддаг байж магадгүй, тэгэхээр эхлээд C-ээс эхэлж болно. Гол нь <b>клиент болгонд тусдаа</b> хадгалах. Нэрийг нь ойлгомжтой өг.</p>
+  </aside>
+</section>
+
+<!-- 8 LIVE BUILD OVERVIEW -->
+<section class="slide" data-time="1:00">
+  <p class="eyebrow">03 · Live build</p>
+  <h2 class="t">Let's build: a week of posts for Мөрөн кафе</h2>
+  <div class="steps">
+    <div class="step"><p class="k">1</p><h3>Context pack</h3><p class="small">From Session 1</p></div>
+    <div class="step"><p class="k">2</p><h3>Plan the week</h3><p class="small">Content calendar</p></div>
+    <div class="step"><p class="k">3</p><h3>Write 7 posts</h3><p class="small">Template + self-critique</p></div>
+    <div class="step"><p class="k">4</p><h3>Make images</h3><p class="small">Canva</p></div>
+    <div class="step" style="border-top-color:var(--orange)"><p class="k" style="color:var(--orange)">5</p><h3>Check</h3><p class="small">Mongolian + facts</p></div>
+    <div class="step"><p class="k">6</p><h3>Schedule</h3><p class="small">Meta Business Suite</p></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="statement">20 minutes. <span>Follow along on your own device.</span></p>
+  <aside class="notes">
+    <p>За, одоо хамгийн сонирхолтой хэсэг. <b>Хамтдаа хийнэ.</b> Утас, ноутбукаа нээгээрэй.</p>
+    <p>Өнгөрсөн удаагийн зохиомол 'Мөрөн кафе'-гийн долоо хоногийн 7 постыг эхнээс нь дуустал хийнэ. Зургаан алхам: контекст багц, долоо хоногоо төлөвлөх, 7 пост бичих, зураг хийх, шалгах, тавих цагийг тохируулах.</p>
+    <p>Хүн бүр өөрийнхөө төхөөрөмж дээр дагаж хий. Ойролцоо 20 минут. Гацвал гараа өргө.</p>
+  </aside>
+</section>
+
+<!-- 9 PLAN THE WEEK -->
+<section class="slide" data-time="5:00">
+  <p class="eyebrow">03 · Live build · Steps 1–2</p>
+  <h2 class="t">Plan the week first</h2>
+  <div class="row" style="align-items:flex-start;gap:40px">
+    <pre class="mono" style="flex:1;font-size:21px">[Paste context pack]
+
+Plan 7 Facebook posts for next week
+(Mon–Sun) for Мөрөн кафе.
+Goal: more students during exam week.
+Mix: 2 product, 2 behind-the-scenes,
+1 customer question, 1 poll, 1 recap.
+Output a table:
+Day | Theme | Hook (Mongolian) | Image idea
+Don't invent prices or discounts.</pre>
+    <table class="tb" style="flex:1;font-size:22px">
+      <tr><th>Day</th><th>Theme</th><th>Format</th></tr>
+      <tr><td>Mon</td><td>New honey latte</td><td>Photo</td></tr>
+      <tr><td>Tue</td><td>Study corner for exams</td><td>Photo</td></tr>
+      <tr><td>Wed</td><td>Barista's morning</td><td>Short video</td></tr>
+      <tr><td>Thu</td><td>Customer question</td><td>Text</td></tr>
+      <tr><td>Fri</td><td>Weekend mood</td><td>Photo</td></tr>
+      <tr><td>Sat</td><td>Poll: next flavour?</td><td>Poll</td></tr>
+      <tr class="hl"><td>Sun</td><td>Week recap</td><td>Carousel</td></tr>
+    </table>
+  </div>
+  <aside class="notes">
+    <p>Эхний алхам: <b>шууд пост бичихгүй.</b> Эхлээд долоо хоногоо төлөвлөнө. Яагаад гэвэл 7 постыг нэг нэгээр нь бичвэл бүгд адилхан болчихдог.</p>
+    <p>Контекст багцаа эхэнд нь тавина, тэгээд энэ prompt. Зорилго нь шалгалтын долоо хоногт оюутнуудыг илүү татах. Холимог нь 2 бараа, 2 ард талын амьдрал, 1 үйлчлүүлэгчийн асуулт, 1 санал асуулга, 1 тойм.</p>
+    <p>Хүснэгтээр гаргуулна: өдөр, сэдэв, эхний мөр монголоор, зургийн санаа.</p>
+    <p><i>[Демо: Claude эсвэл ChatGPT-д ажиллуул. Гарсан хүснэгтийг үзүүл.]</i></p>
+    <p>Хараарай, баруун талынх шиг долоо хоног тэнцвэртэй болж байна. Зөвхөн 'манайхаар ороорой' гэж 7 удаа хашгирахгүй. Хүмүүс сонирхолтой юм үзэхийг хүсдэг, зар үзэхийг биш.</p>
+    <p><i>[Хүн бүр өөрсдөө ажиллуулна, 2 минут.]</i></p>
+  </aside>
+</section>
+
+<!-- 10 WRITE POSTS -->
+<section class="slide" data-time="5:00">
+  <p class="eyebrow">03 · Live build · Step 3</p>
+  <h2 class="t">Write each post, then make AI edit itself</h2>
+  <div class="row" style="align-items:flex-start;gap:40px">
+    <pre class="mono" style="flex:1;font-size:21px">Write Monday's post from the calendar.
+Mongolian, under 60 words, max 2 emojis,
+end with a question.
+Give 3 versions: playful, warm, short.
+
+Now review all 3 as a strict editor.
+Which sounds most like a real Mongolian
+person? Fix any stiff phrases. Return
+the best one only.</pre>
+    <div class="box" style="flex:1">
+      <p class="eyebrow">Example result · Monday</p>
+      <p style="font-size:27px;line-height:1.5">Шалгалтын долоо хоног эхэллээ 📚 Тархиа нэг сэргээчих. Шинэ зөгийн балтай латте маань бүлээхэн, зөөлөн, ээжийн чанасан цай шиг тайвшруулна. Аль хичээлээ түрүүлж давтах вэ? 👇</p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="callout">Chain: <b>calendar → post → self-critique</b>. One focused step per prompt.</p>
+  <aside class="notes">
+    <p>Хоёр дахь алхам: постоо бичнэ. Гэхдээ нэг гоё арга хэрэглэнэ.</p>
+    <p>Эхлээд гурван хувилбар гаргуулна: хөгжилтэй, дулаахан, богино. Тэгээд <b>AI-гаараа өөрийгөө шүүмжлүүлнэ</b>: 'хатуу редактор шиг хар, аль нь жинхэнэ монгол хүн ярьж байгаа юм шиг сонсогдож байна, хиймэл хэллэгийг нь зас.'</p>
+    <p>Өнгөрсөн удаа сурсан хоёр аргаа нийлүүлж байгаа юм: prompt-оо гинжлэх, өөрийгөө шүүмжлүүлэх.</p>
+    <p><i>[Демо хий. Баруун талын жишээг уншиж өг.]</i></p>
+    <p>Энэ постыг хараарай. 'Тархиа нэг сэргээчих', 'ээжийн чанасан цай шиг', энэ чинь жинхэнэ хүн ярьж байгаа юм шиг байна шүү дээ. Төгсгөлд нь асуулт байгаа болохоор хүмүүс коммент бичнэ.</p>
+    <p><i>[Хүн бүр Даваа гарагийн постоо бичнэ, 3 минут.]</i></p>
+  </aside>
+</section>
+
+<!-- 11 CANVA -->
+<section class="slide" data-time="4:00">
+  <p class="eyebrow">03 · Live build · Step 4</p>
+  <h2 class="t">Images in Canva: set up once, reuse forever</h2>
+  <div class="grid2">
+    <div class="col hi"><p class="num">1</p><h3>Brand Kit</h3><p class="small">Logo, 2 colours, 1 font. Every design starts on-brand.</p></div>
+    <div class="col"><p class="num">2</p><h3>One template</h3><p class="small">A 1080×1350 post (Facebook + Instagram portrait). Photo area + hook text.</p></div>
+    <div class="col"><p class="num">3</p><h3>Fill 7 versions</h3><p class="small">Duplicate the page 7 times and paste the hooks. Canva Pro's Bulk Create does it in one go.</p></div>
+    <div class="col"><p class="num">4</p><h3>Real photos first</h3><p class="small">Use the café's own photos. AI images only for backgrounds or ideas, never fake products.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Гурав дахь алхам: зураг. Canva дээр <b>нэг удаа тохируулаад, үүрд дахин ашиглана.</b></p>
+    <p>Нэгд, <b>Brand Kit</b>: лого, хоёр өнгө, нэг фонт. Тэгвэл хийсэн дизайн болгон брэндийнхээ өнгөөр гарна.</p>
+    <p>Хоёрт, нэг загвар хий. 1080-аас 1350, энэ хэмжээ Facebook, Instagram хоёуланд нь гоё харагддаг. Дээр нь зураг, доор нь эхний мөр.</p>
+    <p>Гуравт, тэр хуудсаа 7 удаа хуулаад мөрүүдээ солиод тавина. Canva Pro байвал Bulk Create гэдгээр нэг дор хийчихнэ.</p>
+    <p>Дөрөвт, <b>чухал</b>: кафены жинхэнэ зургийг хэрэглэ. AI зургийг зөвхөн арын фон, санаанд л ашигла. Байхгүй бараа, байхгүй ундааны зураг AI-аар хийгээд тавьж болохгүй. Хүмүүс ирээд өөр юм харвал итгэлээ алдана.</p>
+  </aside>
+</section>
+
+<!-- 12 CHECK + SCHEDULE -->
+<section class="slide" data-time="4:00">
+  <p class="eyebrow">03 · Live build · Steps 5–6</p>
+  <h2 class="t">Check it, then schedule the whole week</h2>
+  <div class="row">
+    <div class="col warn" style="flex:1">
+      <h3 style="color:var(--orange)">5 · Check before anything goes out</h3>
+      <p class="small">Read every post <b>out loud</b>. Check every fact: opening hours, address, product names. Use the checklist on the next slide.</p>
+      <p class="small">Send the full week to the owner for approval.</p>
+    </div>
+    <div class="col hi" style="flex:1">
+      <h3>6 · Schedule in Meta Business Suite</h3>
+      <p class="small">Planner → create post → choose Facebook and Instagram → set date and time. Repeat for 7 days in about 10 minutes.</p>
+      <p class="small">Pick times when the page's followers are online (Insights shows this).</p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="statement">One afternoon of work = <span>a whole week of posts.</span></p>
+  <aside class="notes">
+    <p>Тав дахь алхам, <b>шалгах.</b> Пост болгоныг <b>чангаар уншаарай.</b> Чангаар уншихад хиймэл юм шууд сонсогддог. Баримт болгоныг шалга: ажлын цаг, хаяг, барааны нэр. Тэгээд долоо хоногийн бүх постыг эзэнд нь явуулж зөвшөөрүүлнэ.</p>
+    <p>Зургаа дахь алхам, <b>цагийг нь тохируулах.</b> Meta Business Suite-ийн Planner хэсэгт ороод пост үүсгэнэ, Facebook, Instagram хоёуланг нь сонгоно, өдөр цагаа тавина. 7 өдрийг 10 минутад хийчихнэ.</p>
+    <p>Ямар цагт тавих вэ гэвэл Insights дээр дагагчид чинь хэзээ онлайн байдгийг харуулдаг. Тэр цагаа сонго.</p>
+    <p>Тэгэхээр нэг үдээс хойш суугаад бүтэн долоо хоногийн пост бэлэн болчихно. Энэ чинь workflow-ийн хүч.</p>
+  </aside>
+</section>
+
+<!-- 13 QC CHECKLIST -->
+<section class="slide alt" data-time="5:00">
+  <p class="eyebrow">04 · Quality control</p>
+  <h2 class="t">Make AI Mongolian sound human</h2>
+  <div class="row" style="gap:56px">
+    <table class="tb" style="flex:1.25;font-size:23px">
+      <tr><th style="width:50%"><span class="bad">Stiff (AI)</span></th><th><span class="good">Natural</span></th></tr>
+      <tr><td>Эрхэм хүндэт хэрэглэгч та бүхэндээ…</td><td>Сайн уу, найзуудаа 👋</td></tr>
+      <tr><td>Худалдан авснаар та … боломжтой</td><td>Авбал …</td></tr>
+      <tr><td>Манай байгууллага танд хүргэж байна</td><td>Манайд шинэ … ирлээ</td></tr>
+      <tr><td>Гайхалтай мөчүүдийг хамтдаа бүтээцгээе</td><td>Хамт ирээд сууя л даа</td></tr>
+    </table>
+    <div class="col" style="flex:1;border-top:none;padding-top:0;gap:10px">
+      <h3>The 6-point check</h3>
+      <p class="small">1. Read it out loud: would a friend say it?</p>
+      <p class="small">2. No stiff openers or translated phrases</p>
+      <p class="small">3. Correct grammar and case endings</p>
+      <p class="small">4. No random Russian or English words</p>
+      <p class="small">5. Every fact checked: price, hours, address</p>
+      <p class="small">6. No health or "guaranteed" claims</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Дөрөвдүгээр хэсэг, <b>чанарын шалгалт.</b> Монголд яг энэ л чамайг бусдаас ялгана.</p>
+    <p>Зүүн талыг хараарай. AI-ийн бичдэг хиймэл монгол, баруун талд жинхэнэ хүний ярьдаг монгол. <i>[Мөр мөрөөр нь уншиж өг.]</i> 'Эрхэм хүндэт хэрэглэгч та бүхэндээ', хэн ингэж ярьдаг юм бэ, нээрээ. 'Сайн уу, найзуудаа' гэхэд л болно. 'Худалдан авснаар та боломжтой' биш, 'авбал'. Гэх мэт.</p>
+    <p>Баруун талд 6 шалгалт. Хамгийн чухал нь эхнийх: <b>чангаар уншаад, найз чинь ингэж хэлэх үү?</b> Хэлэхгүй бол засна.</p>
+    <p>Тэгээд хиймэл эхлэл байхгүй, дүрэм, нөхцөл зөв, дунд нь орос англи үг байхгүй, баримт бүгд шалгагдсан, эрүүл мэндийн болон 'баталгаатай' гэх мэт амлалт байхгүй.</p>
+    <p><i>[Дасгал: AI-ийн бичсэн нэг хиймэл постыг дэлгэцэнд гаргаад ангиар засуул, 2 минут.]</i></p>
+  </aside>
+</section>
+
+<!-- 14 OFFER LADDER -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">05 · Your first client</p>
+  <h2 class="t">Package it. Don't sell hours.</h2>
+  <div class="steps" style="gap:24px">
+    <div class="step"><p class="k">1</p><h3>Free sample week</h3><p class="small">7 posts with images. Builds trust and your portfolio.</p></div>
+    <p class="arrow">→</p>
+    <div class="step" style="border-top-color:var(--navy)"><p class="k" style="color:var(--navy)">2</p><h3>Monthly package</h3><p class="small">e.g. 12 posts + calendar + scheduling.<br><b>[₮ ______ / month]</b></p></div>
+    <p class="arrow">→</p>
+    <div class="step"><p class="k">3</p><h3>Add-ons</h3><p class="small">Reels, ad text, menu or poster redesign.<br><b>[₮ ______ each]</b></p></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="callout">Sell the outcome: <b>"Your page posts 3 times a week, every week, and you don't have to think about it."</b></p>
+  <aside class="notes">
+    <p>Тав дахь хэсэг, <b>анхны клиент.</b></p>
+    <p>Гол санаа: <b>цагаа биш, багцаа зар.</b> 'Би цагт тэдэн төгрөг' гэвэл хүмүүс ойлгохгүй. 'Сард 12 пост, төлөвлөгөөтэй, цагийг нь тохируулаад өгнө' гэвэл шууд ойлгоно.</p>
+    <p>Гурван шат бий. Нэгд, <b>үнэгүй долоо хоног</b>: итгэл олж, портфолиотой болно. Хоёрт, <b>сарын багц</b>. Гуравт, <b>нэмэлт</b>: Reels, зарын текст, постер.</p>
+    <p><i>[Үнийг өөрөө тавь: зах зээлийн жишээ, эхлэгчийн бодит үнэ.]</i></p>
+    <p>Тэгээд үр дүнг нь зар. 'Танай хуудас долоо хоногт 3 удаа тогтмол пост тавина, та санаа зовох хэрэггүй.' Эзэн хүнд энэ л хэрэгтэй.</p>
+  </aside>
+</section>
+
+<!-- 15 DM TEMPLATE -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">05 · Your first client</p>
+  <h2 class="t">The message that gets a reply</h2>
+  <div class="row" style="align-items:flex-start;gap:48px">
+    <div class="box" style="flex:1.4">
+      <p style="font-size:27px;line-height:1.55">Сайн байна уу! Би <b>[нэр]</b>. Танай <b>[бизнес]</b>-ийн хуудсыг үзлээ, <b>[нэг сайн зүйл]</b> нь их таалагдсан.<br><br>Танай хуудсанд зориулж нэг долоо хоногийн 7 пост үнэгүй хийчихлээ. Зураг, текст нь бэлэн. Үзээд таалагдвал цааш хамтран ажиллах уу? 🙂</p>
+    </div>
+    <div class="col hi" style="flex:1">
+      <h3>Why it works</h3>
+      <p class="small"><b>Personal:</b> shows you actually looked at their page.</p>
+      <p class="small"><b>Gives first:</b> the work is already done.</p>
+      <p class="small"><b>Easy yes:</b> no price, no pressure in message one.</p>
+      <p class="small"><b>Follow up once</b> after 3 days. Then move on.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Тэгээд яаж бичих вэ? Энэ мессежийг шууд хуулаад хэрэглэж болно.</p>
+    <p><i>[Мессежийг уншиж өг.]</i></p>
+    <p>Яагаад ажилладаг вэ гэхээр, нэгд, <b>хувийн</b>. Хуудсыг нь нээрээ үзсэнээ харуулж байна. 'Танай латтены зураг их гоё юм' гэх мэт нэг юм заавал хэл. Хүн бүрт ижилхэн мессеж явуулбал тоохгүй.</p>
+    <p>Хоёрт, <b>эхлээд өгч байна.</b> Ажил аль хэдийн хийгдчихсэн.</p>
+    <p>Гуравт, <b>'тийм' гэхэд амар.</b> Эхний мессежид үнэ ярихгүй, шахахгүй.</p>
+    <p>Хариу ирэхгүй бол 3 хоногийн дараа нэг удаа л сануулна. Тэгээд дараагийн бизнес рүү. Бүгд хариулахгүй, энэ хэвийн зүйл. Арваас нэг, хоёр хариулбал сайн.</p>
+  </aside>
+</section>
+
+<!-- 16 TESTIMONIAL + SAFETY -->
+<section class="slide alt" data-time="2:00">
+  <p class="eyebrow">05 · Your first client</p>
+  <h2 class="t">Proof, and how to work safely</h2>
+  <div class="row">
+    <div class="col hi"><h3>Get a testimonial</h3><p class="small">After 1–2 weeks: "Надтай ажилласан тухайгаа 1–2 өгүүлбэрээр бичээд өгөх үү?"</p><p class="small">Track before and after: reach, comments, messages. Numbers sell the next client.</p></div>
+    <div class="col warn"><h3 style="color:var(--orange)">Never take a password</h3><p class="small">Ask the owner to add you in Meta Business Suite (Settings → People) with limited access, or send the posts for them to schedule.</p><p class="small">Anything with money or contracts: <b>do it with a parent.</b></p></div>
+  </div>
+  <aside class="notes">
+    <p>Хоёр чухал юм.</p>
+    <p>Нэгд, <b>сэтгэгдэл ав.</b> Нэг хоёр долоо хоногийн дараа эзнээс 'надтай ажилласан тухайгаа нэг хоёр өгүүлбэрээр бичээд өгөх үү?' гэж асуу. Бас өмнө нь болон дараа нь хэдэн хүнд хүрсэн, хэдэн коммент, хэдэн мессеж ирсэн гэдгийг тэмдэглэ. Тэр тоо дараагийн клиентийг чинь авчирна.</p>
+    <p>Хоёрт, <b>аюулгүй байдал.</b> Хэзээ ч бизнесийн эзнээс нууц үг нь бүү ав. Meta Business Suite дээр эзэн чамайг Settings, People гэдгээр хязгаарлагдмал эрхтэй нэмж өгч болно. Эсвэл постуудаа явуулаад өөрөөр нь тавиулна.</p>
+    <p>Мөнгө, гэрээтэй холбоотой бүх юмыг <b>аав ээжтэйгээ хамт</b> хий.</p>
+  </aside>
+</section>
+
+<!-- 17 MISSION 2 -->
+<section class="slide" data-time="2:00" style="flex-direction:row;align-items:center;gap:96px">
+  <div style="flex:1;display:flex;flex-direction:column;gap:36px">
+    <p class="eyebrow">Mission 3</p>
+    <h1 style="font-size:96px;font-weight:800;line-height:1.05;letter-spacing:-2px">One real business.<br>One real week.<br><span style="color:var(--blue)">Delivered.</span></h1>
+  </div>
+  <div class="col hi" style="flex:none;width:700px;gap:22px">
+    <p style="font-size:28px;line-height:1.4"><b class="good">1</b> &nbsp;Pick a real business (with the owner's OK).</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">2</b> &nbsp;Build its context pack.</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">3</b> &nbsp;Make the week: calendar, 7 posts, images.</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">4</b> &nbsp;Send it with the message template.</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">5</b> &nbsp;Post in #showcase by <b>[day]</b>: calendar, 2 best posts, the owner's reply.</p>
+  </div>
+  <aside class="notes">
+    <p>За, 3-р даалгавар. <b>Нэг жинхэнэ бизнес, нэг жинхэнэ долоо хоног, хүлээлгэж өгөх.</b></p>
+    <p>Нэгд, жинхэнэ бизнес сонго. Эзэн нь зөвшөөрсөн байх. Найзынхаа, ээжийнхээ, ойролцоох кафе. Хоёрт, контекст багцаа хий. Гуравт, өнөөдрийнх шиг долоо хоногоо хий: төлөвлөгөө, 7 пост, зураг. Дөрөвт, мессежийн загвараар явуул. Тавд, [өдөр] гэхэд #showcase-д тавь: төлөвлөгөө, хамгийн сайн 2 пост, эзний хариу.</p>
+    <p>Эзэн нь 'үгүй' гэсэн ч зүгээр. Тэр ч гэсэн суралцах юм. Яагаад үгүй гэснийг нь асуугаад тавиарай.</p>
+  </aside>
+</section>
+
+<!-- 18 NEXT -->
+<section class="slide alt" data-time="1:00">
+  <p class="eyebrow">Next session</p>
+  <h2 class="t">Session 4: AI video that sells</h2>
+  <div class="steps">
+    <div class="step"><p class="k">1</p><h3>Source clip</h3></div>
+    <div class="step"><p class="k">2</p><h3>Mongolian script</h3></div>
+    <div class="step"><p class="k">3</p><h3>AI voice</h3></div>
+    <div class="step"><p class="k">4</p><h3>Captions + hook</h3></div>
+    <div class="step"><p class="k">5</p><h3>Post + measure</h3></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="statement">Build context. Ship the week. <span>See you in #showcase.</span></p>
+  <aside class="notes">
+    <p>Дараагийн удаа, <b>4-р хичээл: зардаг AI видео.</b> Өнгөрсөн удаа товч харуулсан Reels-ийн workflow-ийг бүтэн хийнэ: эх видео, монгол скрипт, AI дуу хоолой, хадмал, тавиад хэмжих.</p>
+    <p>Тэр болтол 3-р даалгавраа хийгээрэй. Контекстоо бэлд, долоо хоногоо хүлээлгэж өг. #showcase дээр уулзъя. Баярлалаа!</p>
+  </aside>
+</section>
+
+</div>
+
+<div class="notes-panel" id="notes" aria-live="polite"></div>
+<p class="help">← → navigate · N notes · F fullscreen</p>
+<div class="ui">
+  <button id="prev" aria-label="Previous slide">←</button>
+  <span class="count" id="count">1 / 18</span>
+  <button id="next" aria-label="Next slide">→</button>
+  <button id="nbtn" aria-label="Toggle speaker notes">Notes</button>
+</div>
+
+<script>
+(function(){
+  var deck=document.getElementById('deck');
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var notes=document.getElementById('notes');
+  var count=document.getElementById('count');
+  var i=0;
+
+  slides.forEach(function(s,n){
+    if(n===0) return;
+    var b=document.createElement('div');b.className='brand';
+    b.innerHTML='<img src="../assets/logo.jpg" alt="AEPA logo"><span>AEPA</span>';
+    s.appendChild(b);
+    var f=document.createElement('div');f.className='foot';
+    f.innerHTML='<span>Session 3 · From prompt to workflow</span><span>'+String(n+1).padStart(2,'0')+'</span>';
+    s.appendChild(f);
+  });
+
+  function fit(){
+    var s=Math.min(window.innerWidth/1920,window.innerHeight/1080);
+    deck.style.transform='translate(-50%,-50%) scale('+s+')';
+  }
+  function show(n){
+    i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.classList.toggle('active',k===i)});
+    count.textContent=(i+1)+' / '+slides.length;
+    var a=slides[i].querySelector('aside.notes');
+    var t=slides[i].getAttribute('data-time');
+    notes.innerHTML=(t?'<div class="time">Slide '+(i+1)+' · ~'+t+'</div>':'')+(a?a.innerHTML:'');
+    try{history.replaceState(null,'','#'+(i+1))}catch(e){}
+  }
+  function toggleNotes(){
+    notes.classList.toggle('open');
+    try{localStorage.setItem('aepa-notes',notes.classList.contains('open')?'1':'0')}catch(e){}
+  }
+  document.addEventListener('keydown',function(e){
+    if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();show(i+1)}
+    else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();show(i-1)}
+    else if(e.key==='Home'){show(0)}
+    else if(e.key==='End'){show(slides.length-1)}
+    else if(e.key==='n'||e.key==='N'){toggleNotes()}
+    else if(e.key==='f'||e.key==='F'){
+      if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen()}
+      else{document.exitFullscreen&&document.exitFullscreen()}
+    }
+  });
+  document.getElementById('prev').onclick=function(){show(i-1)};
+  document.getElementById('next').onclick=function(){show(i+1)};
+  document.getElementById('nbtn').onclick=toggleNotes;
+  [].forEach.call(document.querySelectorAll('[data-reveal]'),function(q){
+    q.addEventListener('click',function(){var r=q.querySelector('.reveal');if(r)r.classList.toggle('on')});
+  });
+  var x0=null;
+  document.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  document.addEventListener('touchend',function(e){
+    if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50){show(dx<0?i+1:i-1)} x0=null;
+  });
+  window.addEventListener('resize',fit);
+  try{if(localStorage.getItem('aepa-notes')==='1')notes.classList.add('open')}catch(e){}
+  fit();
+  var h=parseInt((location.hash||'#1').slice(1),10);
+  show(isNaN(h)?0:h-1);
+})();
+</script>
+</body>
+</html>

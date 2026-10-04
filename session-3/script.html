@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Session 2 Script</title>
-<meta name="description" content="Speaking script (Mongolian) and timing for AEPA Session 2.">
+<title>Session 3 Script</title>
+<meta name="description" content="Speaking script (Mongolian) and timing for AEPA Session 3.">
 <link rel="icon" href="../assets/logo.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
 <style>
@@ -31,8 +31,8 @@ a{color:var(--blue)}
 <body>
 <div class="wrap">
   <header><img src="../assets/logo.jpg" alt="AEPA logo"><b>AEPA</b></header>
-  <h1>Session 2: Илтгэлийн скрипт</h1>
-  <p class="sub">Inside the machine · Монгол ярианы хэлээр · <a href="./">Слайд руу буцах</a> · <a href="handouts.html">Гарын авлага</a></p>
+  <h1>Session 3: Илтгэлийн скрипт</h1>
+  <p class="sub">From prompt to workflow · Монгол ярианы хэлээр · <a href="./">Слайд руу буцах</a> · <a href="handouts.html">Гарын авлага</a></p>
   <div class="total" id="total">Ачаалж байна…</div>
   <div id="list"></div>
 </div>
@@ -50,7 +50,7 @@ fetch('index.html').then(function(r){return r.text()}).then(function(html){
     out+='<section class="s"><h2>'+(n+1)+'. '+title.replace(/\s+/g,' ').trim()+'</h2><div class="meta">~'+t+(eb?' · '+eb:'')+'</div>'+(a?a.innerHTML:'')+'</section>';
   });
   document.getElementById('list').innerHTML=out;
-  document.getElementById('total').innerHTML='<b>Нийт ~'+fmt(sum)+' мин</b> (демо, дасгалтай). Асуулт хариултад +10 мин. Санал болгох хугацаа: <b>65 мин</b>.';
+  document.getElementById('total').innerHTML='<b>Нийт ~'+fmt(sum)+' мин</b> (демо, дасгалтай). Асуулт хариултад +10 мин. Санал болгох хугацаа: <b>70 мин</b>.';
 }).catch(function(){
   document.getElementById('total').textContent='Скриптийг ачаалж чадсангүй. Слайд дээр N товч дарж тэмдэглэлийг харна уу.';
 });

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AEPA Session 2</title>
-<meta name="description" content="AEPA Session 2: From prompt to workflow. Build your first AI content system and land your first client.">
+<meta name="description" content="AEPA Session 2: Inside the machine. How AI really thinks, and how to think with it.">
 <link rel="icon" href="../assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,378 +108,352 @@ table.tb tr.hl td{background:var(--blue-soft)}
   </div>
   <div style="display:flex;flex-direction:column;gap:32px">
     <div style="width:120px;height:8px;background:var(--blue)"></div>
-    <h1 style="font-size:128px;font-weight:800;line-height:1.05;letter-spacing:-3px">From prompt<br>to workflow.</h1>
-    <h2 style="font-size:50px;font-weight:600;line-height:1.2;color:#374151;max-width:1500px">Build your first AI content system, and land your first client</h2>
-    <p style="font-size:28px;color:var(--muted)">Session 2 · Hands-on · Bring your laptop or phone</p>
+    <h1 style="font-size:128px;font-weight:800;line-height:1.05;letter-spacing:-3px">Inside the machine.</h1>
+    <h2 style="font-size:50px;font-weight:600;line-height:1.2;color:#374151;max-width:1500px">How AI really thinks, and how to think with it</h2>
+    <p style="font-size:28px;color:var(--muted)">Session 2 · Fundamentals · Bring your phone</p>
   </div>
   <aside class="notes">
     <p>За, сайн байцгаана уу залуусаа! AEPA-гийн 2-р хичээлд тавтай морил.</p>
-    <p>Өнгөрсөн удаа бид AI яаж ажилладаг, prompt яаж бичих, контекст гэж юу вэ гэдгийг ярьсан. Тэр бол <b>мэдэх</b> хэсэг байсан. Өнөөдөр бол <b>хийх</b> хэсэг.</p>
-    <p>Хичээл дуусахад та нар бүгд нэг ажилладаг систем, бас анхны клиент рүүгээ явуулах бэлэн мессежтэй болчихсон байна. Тийм болохоор утас, ноутбукаа гаргаад бэлдчих. Өнөөдөр хамт хийнэ. За, эхэлье.</p>
+    <p>Өнгөрсөн удаа бид AI гэж юу вэ, prompt яаж бичих вэ гэдгийг үзсэн. Өнөөдөр бол арай гүнзгий орно. <b>Машины дотор юу болоод байгааг</b> харна.</p>
+    <p>Яагаад гэвэл AI-г зүгээр хэрэглэдэг хүн олон. Харин яаж ажилладгийг нь ойлгосон хүн хаана нь итгэж болох, хаана нь болохгүйг мэддэг. Тэр хүн л AI-г жинхэнэ сайн ашигладаг. Өнөөдөр мөнгөний тухай бараг ярихгүй, суурийг нь тавина. Мөнгө дараагийн хичээлээр.</p>
   </aside>
 </section>
 
 <!-- 2 AGENDA -->
 <section class="slide" data-time="1:00">
   <p class="eyebrow">Today</p>
-  <h2 class="t">From knowing to doing</h2>
+  <h2 class="t">Six fundamentals most people skip</h2>
   <div class="grid3" style="margin-top:8px">
-    <div class="col"><p class="num">01</p><h3>Showcase review</h3><p class="small">What worked in your Mission 1 prompts, and why.</p></div>
-    <div class="col"><p class="num">02</p><h3>What a workflow is</h3><p class="small">Turn one good prompt into a reusable system.</p></div>
-    <div class="col hi"><p class="num">03</p><h3>Live build</h3><p class="small">A full week of posts for a café, start to finish.</p></div>
-    <div class="col"><p class="num">04</p><h3>Quality control</h3><p class="small">Make AI Mongolian sound like a real person.</p></div>
-    <div class="col"><p class="num">05</p><h3>Your first client</h3><p class="small">Package it, message the owner, get a testimonial.</p></div>
-    <div class="col"><p class="num">06</p><h3>Mission 2</h3><p class="small">Deliver a free week of content to a real business.</p></div>
+    <div class="col"><p class="num">01</p><h3>How AI reads</h3><p class="small">Tokens, and the limits of its working memory.</p></div>
+    <div class="col"><p class="num">02</p><h3>Myths vs. reality</h3><p class="small">Does it learn from you? Does it search the web?</p></div>
+    <div class="col"><p class="num">03</p><h3>Why answers change</h3><p class="small">Randomness, knowledge cutoffs and tools.</p></div>
+    <div class="col"><p class="num">04</p><h3>Trust, but verify</h3><p class="small">Why AI makes things up, and how to catch it.</p></div>
+    <div class="col hi"><p class="num">05</p><h3>Learn with AI</h3><p class="small">Use it as a tutor, not a homework machine.</p></div>
+    <div class="col"><p class="num">06</p><h3>Safe and honest</h3><p class="small">Privacy, deepfakes, bias and being upfront.</p></div>
   </div>
   <aside class="notes">
-    <p>Өнөөдөр зургаан хэсэгтэй.</p>
-    <p>Эхлээд та нарын #showcase-д тавьсан ажлуудыг харна. Дараа нь workflow гэж юу вэ гэдгийг ойлгоод, нэг сайн prompt-ыг яаж дахин дахин ашиглагдах систем болгохыг харна.</p>
-    <p>Хамгийн том хэсэг нь гурав дахь нь. <b>Нэг кафены долоо хоногийн постыг эхнээс нь дуустал хамтдаа хийнэ.</b></p>
-    <p>Тэгээд AI-ийн монгол хэлийг жинхэнэ хүн ярьж байгаа юм шиг болгох, анхны клиентээ яаж олох, тэгээд 2-р даалгавар.</p>
+    <p>Өнөөдөр зургаан суурь ойлголт. Ихэнх хүн эдгээрийг алгасаад шууд хэрэглээд эхэлдэг, тэгээд 'AI худлаа хэлчихлээ', 'AI мартчихлаа' гээд гомдоллодог.</p>
+    <p>AI яаж уншдаг, түүний ой санамж хэр вэ. Хүмүүсийн итгэдэг гурван буруу ойлголт. Яагаад хариулт нь өөр өөр гараад байдаг вэ. AI яагаад зохиодог вэ, яаж барьж авах вэ. AI-г багш болгож ашиглах. Тэгээд аюулгүй, шударга хэрэглэх.</p>
+    <p>Энэ бүхнийг ойлгочихвол та нар AI хэрэглэдэг хүмүүсийн 90 хувиас илүү ойлголттой болно.</p>
   </aside>
 </section>
 
-<!-- 3 SHOWCASE -->
-<section class="slide" data-time="10:00">
-  <p class="eyebrow">01 · Showcase review</p>
-  <h2 class="t">Reviewing your Mission 1 prompts</h2>
-  <p class="lead">For each submission, we look at the prompt first, then the result.</p>
-  <div class="row">
-    <div class="col hi"><p class="num">Keep</p><h3>What's working?</h3><p class="small">Which of the 6 parts are strong? Role, task, context, examples, format, constraints.</p></div>
-    <div class="col"><p class="num" style="color:var(--orange)">Fix</p><h3>What's weak?</h3><p class="small">Missing context? No format? Stiff Mongolian? Invented facts?</p></div>
-    <div class="col"><p class="num" style="color:var(--navy)">Add</p><h3>One upgrade</h3><p class="small">The single change that would improve it most. Just one.</p></div>
-  </div>
-  <div class="spacer"></div>
-  <p class="callout">We review <b>prompts, not people.</b> Every prompt here can get better, including mine.</p>
-  <aside class="notes">
-    <p><i>[Өмнө нь #showcase-ээс 3 шилдэг ажлыг сонгоод, дэлгэцэн дээр нээх бэлэн болгочих.]</i></p>
-    <p>Эхлээд #showcase-ээс эхэлье. Ажлаа тавьсан бүх хүнд баярлалаа, нээрээ.</p>
-    <p>Ажил болгоныг гурван асуултаар харна. <b>Keep</b>, юу нь сайн байна, үүнийг хадгална. <b>Fix</b>, юу нь сул байна, үүнийг засна. <b>Add</b>, ганцхан юм нэмэх бол юу нэмэх вэ.</p>
-    <p>Анхаарах юм: бид үр дүнг нь биш, эхлээд <b>prompt</b>-ыг нь харна. Учир нь сайн үр дүн сайн prompt-оос гардаг.</p>
-    <p><i>[Нэг ажил тутамд 3 минут. Эзнээс нь 'яагаад ингэж бичсэн бэ?' гэж асуу. Тэгээд ангиас 'Fix'-ийг нь асуу.]</i></p>
-    <p>Бас нэг юм: бид хүнийг биш, prompt-ыг шүүмжилж байгаа шүү. Миний prompt ч гэсэн сайжрах газар байдаг.</p>
-  </aside>
-</section>
-
-<!-- 4 QUIZ -->
+<!-- 3 WARM-UP -->
 <section class="slide alt" data-time="3:00">
-  <p class="eyebrow">Quick recap · tap a question to reveal</p>
-  <h2 class="t">3 questions from last time</h2>
-  <div class="quiz">
-    <div class="q" data-reveal><p class="qn">1</p><div><p class="qq">What are the 6 parts of a great prompt?</p><p class="qa reveal">Role · Task · Context · Examples · Format · Constraints</p></div></div>
-    <div class="q" data-reveal><p class="qn">2</p><div><p class="qq">Prompt engineering vs. context engineering?</p><p class="qa reveal">Prompt = <b>how you ask</b> (improves one answer). Context = <b>what AI can see</b> (improves every answer after).</p></div></div>
-    <div class="q" data-reveal><p class="qn">3</p><div><p class="qq">Which layers is the money in, and which one are we building today?</p><p class="qa reveal">Layers 2–4. Today: <b>layer 4, Workflow</b>.</p></div></div>
-  </div>
-  <aside class="notes">
-    <p>За, хурдан шалгалт. Гараа өргөөд хариулаарай.</p>
-    <p><b>Нэгдүгээр асуулт:</b> сайн prompt-ын зургаан хэсэг юу вэ? <i>[Хүлээ, тэгээд дарж хариуг гарга.]</i> Дүр, даалгавар, контекст, жишээ, формат, хязгаарлалт. Сайн байна.</p>
-    <p><b>Хоёрдугаар:</b> prompt, контекст хоёрын ялгаа юу вэ? Prompt бол яаж асуух, нэг хариултыг сайжруулна. Контекст бол AI юу харж байна, цаашдын бүх хариултыг сайжруулна.</p>
-    <p><b>Гуравдугаар:</b> мөнгө аль давхаргад байна вэ? 2-оос 4. Тэгээд өнөөдөр бид <b>4-р давхарга, workflow</b>-оо хийнэ.</p>
-  </aside>
-</section>
-
-<!-- 5 WORKFLOW -->
-<section class="slide" data-time="4:00">
-  <p class="eyebrow">02 · What a workflow is</p>
-  <h2 class="t">A workflow is a recipe you can repeat</h2>
-  <div class="steps">
-    <div class="step"><p class="k">Input</p><h3>What goes in</h3><p class="small">Context pack + this week's news: a new drink, exam week.</p></div>
-    <p class="arrow">→</p>
-    <div class="step"><p class="k">Steps</p><h3>Fixed prompts</h3><p class="small">Plan the week → write 7 posts → make images.</p></div>
-    <p class="arrow">→</p>
-    <div class="step" style="border-top-color:var(--orange)"><p class="k" style="color:var(--orange)">Checks</p><h3>Human review</h3><p class="small">Facts, tone, Mongolian. Approve before anything goes out.</p></div>
-    <p class="arrow">→</p>
-    <div class="step"><p class="k">Output</p><h3>What comes out</h3><p class="small">7 posts with images, scheduled on Facebook and Instagram.</p></div>
-  </div>
-  <div class="spacer"></div>
+  <p class="eyebrow">Warm-up</p>
+  <h2 class="t">What surprised you in Mission 1?</h2>
   <div class="row">
-    <p class="callout" style="flex:1"><b>Prompting</b> = cooking one meal.<br><b>Workflow</b> = running the restaurant.</p>
-    <p class="callout" style="flex:1">Same quality every week, in a fraction of the time. That consistency is <b>what clients pay for</b>.</p>
-  </div>
-  <aside class="notes">
-    <p>За, workflow гэж юу вэ? Энгийнээр хэлбэл <b>давтагддаг жор</b>.</p>
-    <p>Дөрвөн хэсэгтэй. <b>Оролт</b>, юу орж байна: контекст багц, тэгээд энэ долоо хоногийн мэдээ. Жишээ нь шинэ ундаа гарсан, шалгалтын долоо хоног эхэлсэн гэх мэт.</p>
-    <p><b>Алхмууд</b>: тогтсон prompt-ууд. Эхлээд долоо хоногоо төлөвлөнө, дараа нь 7 пост бичнэ, дараа нь зураг хийнэ.</p>
-    <p><b>Шалгалт</b>: хүн шалгана. Баримт, өнгө аяс, монгол хэл. Юу ч гарахаас өмнө өөрөө батална.</p>
-    <p><b>Гаралт</b>: 7 пост зурагтайгаа, Facebook, Instagram-д цагтаа тавигдахаар бэлэн.</p>
-    <p>Хоолоор жишээ авбал prompt бичих бол нэг хоол хийх. Workflow бол ресторан ажиллуулах. Ресторан өдөр болгон адилхан амттай хоол гаргадаг шүү дээ. Клиент яг тэр <b>тогтвортой чанарын</b> төлөө мөнгө төлдөг.</p>
-  </aside>
-</section>
-
-<!-- 6 TEMPLATE -->
-<section class="slide" data-time="3:00">
-  <p class="eyebrow">02 · What a workflow is</p>
-  <h2 class="t">Turn your best prompt into a template</h2>
-  <div class="row" style="align-items:flex-start">
-    <pre class="mono" style="flex:1.5">You are a social media manager for <b style="color:var(--blue)">{business}</b>.
-Write <b style="color:var(--blue)">{number}</b> Facebook posts about <b style="color:var(--blue)">{topic}</b>.
-Audience: <b style="color:var(--blue)">{audience}</b>. Tone: <b style="color:var(--blue)">{tone}</b>.
-Write in Mongolian, each under <b style="color:var(--blue)">{length}</b> words,
-max 2 emojis, end with a question.
-Use the context pack. Don't invent prices,
-discounts or facts.</pre>
-    <div class="col hi" style="flex:1">
-      <h3>The words in {brackets} change</h3>
-      <p class="small">Everything else stays the same every week.</p>
-      <h3 style="margin-top:12px">Why it matters</h3>
-      <p class="small">No more starting from zero. Same quality for every client. Easy to hand to a teammate.</p>
-    </div>
+    <div class="col hi"><h3>"It worked better when…"</h3><p class="small">One thing you changed in your prompt that made a big difference.</p></div>
+    <div class="col"><h3>"It got it wrong when…"</h3><p class="small">One moment the AI was confidently wrong, or sounded weird in Mongolian.</p></div>
+    <div class="col"><h3>"I wonder why…"</h3><p class="small">One thing about AI that still confuses you. We'll try to answer it today.</p></div>
   </div>
   <div class="spacer"></div>
-  <p class="callout">Your <b>prompt library</b> = your templates. It's the most valuable thing you'll build this month.</p>
+  <p class="callout">Hold on to your "I wonder why". Most of them are answered in the next 40 minutes.</p>
   <aside class="notes">
-    <p>Workflow-ийн хамгийн эхний алхам бол сайн prompt-оо <b>загвар</b> болгох.</p>
-    <p>Хараарай. Цэнхэр хаалтанд байгаа үгс, бизнес, тоо, сэдэв, үзэгчид, өнгө аяс, урт, долоо хоног болгон солигдоно. Бусад нь яг хэвээрээ.</p>
-    <p>Тэгэхээр дараагийн долоо хоногт, эсвэл шинэ клиент ирэхэд хоосноос эхлэхгүй. Зүгээр хаалтан доторх үгсийг солиод л явна.</p>
-    <p>Энэ чинь багийн найздаа өгөхөд ч амар. Ижилхэн загвар, ижилхэн чанар. Өнгөрсөн удаа хэлсэн <b>prompt-ын сан</b> гэдэг чинь яг энэ. Энэ сард бүтээх хамгийн үнэтэй юм чинь.</p>
+    <p>Эхлээд жаахан халаалт. Өнгөрсөн даалгаврыг хийхэд юу гайхуулсан бэ?</p>
+    <p><i>[3–4 хүнээс асуу. Нэг нэг өгүүлбэрээр.]</i></p>
+    <p>'Ингэж бичихээр илүү сайн болсон', 'энд буруу хэлсэн', 'яагаад ингэдэг юм бол' гэх мэт. Сүүлийнх нь хамгийн чухал. 'Яагаад' гэсэн асуултаа санаж байгаарай. Ихэнхийнх нь хариулт өнөөдөр гарна.</p>
+    <p><i>[Хэлсэн 'яагаад'-уудыг самбар эсвэл Discord-т тэмдэглэ. Төгсгөлд нь эргэж хар.]</i></p>
   </aside>
 </section>
 
-<!-- 7 WHERE IT LIVES -->
-<section class="slide alt" data-time="2:00">
-  <p class="eyebrow">02 · What a workflow is</p>
-  <h2 class="t">Where your workflow lives</h2>
-  <div class="row">
-    <div class="col hi"><p class="num">A</p><h3>Claude Project</h3><p class="small">Instructions + context pack + example files in one place. Every chat inside it already knows the business.</p></div>
-    <div class="col"><p class="num">B</p><h3>Custom GPT</h3><p class="small">The same idea in ChatGPT: saved instructions and files, reused with one click.</p></div>
-    <div class="col"><p class="num">C</p><h3>A simple doc</h3><p class="small">Google Doc or Notion: context pack + templates. Copy, paste, fill the blanks. Free and works anywhere.</p></div>
-  </div>
-  <div class="spacer"></div>
-  <p class="callout">One <b>Project or doc per client</b>. Name it clearly: "Мөрөн кафе: weekly posts".</p>
-  <aside class="notes">
-    <p>За, тэр загвар, контекст багцаа хаана хадгалах вэ? Гурван сонголт бий.</p>
-    <p><b>A, Claude Project.</b> Заавар, контекст багц, жишээ файлууд нэг дор. Project дотор нээсэн чат болгон тэр бизнесийг аль хэдийн мэдэж байдаг.</p>
-    <p><b>B, Custom GPT.</b> ChatGPT дээрх яг адилхан санаа.</p>
-    <p><b>C, энгийн document.</b> Google Doc, Notion. Хуулаад, тавиад, хаалтаа бөглөнө. Үнэгүй, хаана ч ажиллана.</p>
-    <p>Зарим нь төлбөртэй багц шаарддаг байж магадгүй, тэгэхээр эхлээд C-ээс эхэлж болно. Гол нь <b>клиент болгонд тусдаа</b> хадгалах. Нэрийг нь ойлгомжтой өг.</p>
-  </aside>
-</section>
-
-<!-- 8 LIVE BUILD OVERVIEW -->
-<section class="slide" data-time="1:00">
-  <p class="eyebrow">03 · Live build</p>
-  <h2 class="t">Let's build: a week of posts for Мөрөн кафе</h2>
-  <div class="steps">
-    <div class="step"><p class="k">1</p><h3>Context pack</h3><p class="small">From Mission 1</p></div>
-    <div class="step"><p class="k">2</p><h3>Plan the week</h3><p class="small">Content calendar</p></div>
-    <div class="step"><p class="k">3</p><h3>Write 7 posts</h3><p class="small">Template + self-critique</p></div>
-    <div class="step"><p class="k">4</p><h3>Make images</h3><p class="small">Canva</p></div>
-    <div class="step" style="border-top-color:var(--orange)"><p class="k" style="color:var(--orange)">5</p><h3>Check</h3><p class="small">Mongolian + facts</p></div>
-    <div class="step"><p class="k">6</p><h3>Schedule</h3><p class="small">Meta Business Suite</p></div>
-  </div>
-  <div class="spacer"></div>
-  <p class="statement">20 minutes. <span>Follow along on your own device.</span></p>
-  <aside class="notes">
-    <p>За, одоо хамгийн сонирхолтой хэсэг. <b>Хамтдаа хийнэ.</b> Утас, ноутбукаа нээгээрэй.</p>
-    <p>Өнгөрсөн удаагийн зохиомол 'Мөрөн кафе'-гийн долоо хоногийн 7 постыг эхнээс нь дуустал хийнэ. Зургаан алхам: контекст багц, долоо хоногоо төлөвлөх, 7 пост бичих, зураг хийх, шалгах, тавих цагийг тохируулах.</p>
-    <p>Хүн бүр өөрийнхөө төхөөрөмж дээр дагаж хий. Ойролцоо 20 минут. Гацвал гараа өргө.</p>
-  </aside>
-</section>
-
-<!-- 9 PLAN THE WEEK -->
-<section class="slide" data-time="5:00">
-  <p class="eyebrow">03 · Live build · Steps 1–2</p>
-  <h2 class="t">Plan the week first</h2>
-  <div class="row" style="align-items:flex-start;gap:40px">
-    <pre class="mono" style="flex:1;font-size:21px">[Paste context pack]
-
-Plan 7 Facebook posts for next week
-(Mon–Sun) for Мөрөн кафе.
-Goal: more students during exam week.
-Mix: 2 product, 2 behind-the-scenes,
-1 customer question, 1 poll, 1 recap.
-Output a table:
-Day | Theme | Hook (Mongolian) | Image idea
-Don't invent prices or discounts.</pre>
-    <table class="tb" style="flex:1;font-size:22px">
-      <tr><th>Day</th><th>Theme</th><th>Format</th></tr>
-      <tr><td>Mon</td><td>New honey latte</td><td>Photo</td></tr>
-      <tr><td>Tue</td><td>Study corner for exams</td><td>Photo</td></tr>
-      <tr><td>Wed</td><td>Barista's morning</td><td>Short video</td></tr>
-      <tr><td>Thu</td><td>Customer question</td><td>Text</td></tr>
-      <tr><td>Fri</td><td>Weekend mood</td><td>Photo</td></tr>
-      <tr><td>Sat</td><td>Poll: next flavour?</td><td>Poll</td></tr>
-      <tr class="hl"><td>Sun</td><td>Week recap</td><td>Carousel</td></tr>
-    </table>
-  </div>
-  <aside class="notes">
-    <p>Эхний алхам: <b>шууд пост бичихгүй.</b> Эхлээд долоо хоногоо төлөвлөнө. Яагаад гэвэл 7 постыг нэг нэгээр нь бичвэл бүгд адилхан болчихдог.</p>
-    <p>Контекст багцаа эхэнд нь тавина, тэгээд энэ prompt. Зорилго нь шалгалтын долоо хоногт оюутнуудыг илүү татах. Холимог нь 2 бараа, 2 ард талын амьдрал, 1 үйлчлүүлэгчийн асуулт, 1 санал асуулга, 1 тойм.</p>
-    <p>Хүснэгтээр гаргуулна: өдөр, сэдэв, эхний мөр монголоор, зургийн санаа.</p>
-    <p><i>[Демо: Claude эсвэл ChatGPT-д ажиллуул. Гарсан хүснэгтийг үзүүл.]</i></p>
-    <p>Хараарай, баруун талынх шиг долоо хоног тэнцвэртэй болж байна. Зөвхөн 'манайхаар ороорой' гэж 7 удаа хашгирахгүй. Хүмүүс сонирхолтой юм үзэхийг хүсдэг, зар үзэхийг биш.</p>
-    <p><i>[Хүн бүр өөрсдөө ажиллуулна, 2 минут.]</i></p>
-  </aside>
-</section>
-
-<!-- 10 WRITE POSTS -->
-<section class="slide" data-time="5:00">
-  <p class="eyebrow">03 · Live build · Step 3</p>
-  <h2 class="t">Write each post, then make AI edit itself</h2>
-  <div class="row" style="align-items:flex-start;gap:40px">
-    <pre class="mono" style="flex:1;font-size:21px">Write Monday's post from the calendar.
-Mongolian, under 60 words, max 2 emojis,
-end with a question.
-Give 3 versions: playful, warm, short.
-
-Now review all 3 as a strict editor.
-Which sounds most like a real Mongolian
-person? Fix any stiff phrases. Return
-the best one only.</pre>
-    <div class="box" style="flex:1">
-      <p class="eyebrow">Example result · Monday</p>
-      <p style="font-size:27px;line-height:1.5">Шалгалтын долоо хоног эхэллээ 📚 Тархиа нэг сэргээчих. Шинэ зөгийн балтай латте маань бүлээхэн, зөөлөн, ээжийн чанасан цай шиг тайвшруулна. Аль хичээлээ түрүүлж давтах вэ? 👇</p>
-    </div>
-  </div>
-  <div class="spacer"></div>
-  <p class="callout">Chain: <b>calendar → post → self-critique</b>. One focused step per prompt.</p>
-  <aside class="notes">
-    <p>Хоёр дахь алхам: постоо бичнэ. Гэхдээ нэг гоё арга хэрэглэнэ.</p>
-    <p>Эхлээд гурван хувилбар гаргуулна: хөгжилтэй, дулаахан, богино. Тэгээд <b>AI-гаараа өөрийгөө шүүмжлүүлнэ</b>: 'хатуу редактор шиг хар, аль нь жинхэнэ монгол хүн ярьж байгаа юм шиг сонсогдож байна, хиймэл хэллэгийг нь зас.'</p>
-    <p>Өнгөрсөн удаа сурсан хоёр аргаа нийлүүлж байгаа юм: prompt-оо гинжлэх, өөрийгөө шүүмжлүүлэх.</p>
-    <p><i>[Демо хий. Баруун талын жишээг уншиж өг.]</i></p>
-    <p>Энэ постыг хараарай. 'Тархиа нэг сэргээчих', 'ээжийн чанасан цай шиг', энэ чинь жинхэнэ хүн ярьж байгаа юм шиг байна шүү дээ. Төгсгөлд нь асуулт байгаа болохоор хүмүүс коммент бичнэ.</p>
-    <p><i>[Хүн бүр Даваа гарагийн постоо бичнэ, 3 минут.]</i></p>
-  </aside>
-</section>
-
-<!-- 11 CANVA -->
+<!-- 4 TOKENS -->
 <section class="slide" data-time="4:00">
-  <p class="eyebrow">03 · Live build · Step 4</p>
-  <h2 class="t">Images in Canva: set up once, reuse forever</h2>
-  <div class="grid2">
-    <div class="col hi"><p class="num">1</p><h3>Brand Kit</h3><p class="small">Logo, 2 colours, 1 font. Every design starts on-brand.</p></div>
-    <div class="col"><p class="num">2</p><h3>One template</h3><p class="small">A 1080×1350 post (Facebook + Instagram portrait). Photo area + hook text.</p></div>
-    <div class="col"><p class="num">3</p><h3>Fill 7 versions</h3><p class="small">Duplicate the page 7 times and paste the hooks. Canva Pro's Bulk Create does it in one go.</p></div>
-    <div class="col"><p class="num">4</p><h3>Real photos first</h3><p class="small">Use the café's own photos. AI images only for backgrounds or ideas, never fake products.</p></div>
-  </div>
-  <aside class="notes">
-    <p>Гурав дахь алхам: зураг. Canva дээр <b>нэг удаа тохируулаад, үүрд дахин ашиглана.</b></p>
-    <p>Нэгд, <b>Brand Kit</b>: лого, хоёр өнгө, нэг фонт. Тэгвэл хийсэн дизайн болгон брэндийнхээ өнгөөр гарна.</p>
-    <p>Хоёрт, нэг загвар хий. 1080-аас 1350, энэ хэмжээ Facebook, Instagram хоёуланд нь гоё харагддаг. Дээр нь зураг, доор нь эхний мөр.</p>
-    <p>Гуравт, тэр хуудсаа 7 удаа хуулаад мөрүүдээ солиод тавина. Canva Pro байвал Bulk Create гэдгээр нэг дор хийчихнэ.</p>
-    <p>Дөрөвт, <b>чухал</b>: кафены жинхэнэ зургийг хэрэглэ. AI зургийг зөвхөн арын фон, санаанд л ашигла. Байхгүй бараа, байхгүй ундааны зураг AI-аар хийгээд тавьж болохгүй. Хүмүүс ирээд өөр юм харвал итгэлээ алдана.</p>
-  </aside>
-</section>
-
-<!-- 12 CHECK + SCHEDULE -->
-<section class="slide" data-time="4:00">
-  <p class="eyebrow">03 · Live build · Steps 5–6</p>
-  <h2 class="t">Check it, then schedule the whole week</h2>
-  <div class="row">
-    <div class="col warn" style="flex:1">
-      <h3 style="color:var(--orange)">5 · Check before anything goes out</h3>
-      <p class="small">Read every post <b>out loud</b>. Check every fact: opening hours, address, product names. Use the checklist on the next slide.</p>
-      <p class="small">Send the full week to the owner for approval.</p>
-    </div>
-    <div class="col hi" style="flex:1">
-      <h3>6 · Schedule in Meta Business Suite</h3>
-      <p class="small">Planner → create post → choose Facebook and Instagram → set date and time. Repeat for 7 days in about 10 minutes.</p>
-      <p class="small">Pick times when the page's followers are online (Insights shows this).</p>
-    </div>
-  </div>
-  <div class="spacer"></div>
-  <p class="statement">One afternoon of work = <span>a whole week of posts.</span></p>
-  <aside class="notes">
-    <p>Тав дахь алхам, <b>шалгах.</b> Пост болгоныг <b>чангаар уншаарай.</b> Чангаар уншихад хиймэл юм шууд сонсогддог. Баримт болгоныг шалга: ажлын цаг, хаяг, барааны нэр. Тэгээд долоо хоногийн бүх постыг эзэнд нь явуулж зөвшөөрүүлнэ.</p>
-    <p>Зургаа дахь алхам, <b>цагийг нь тохируулах.</b> Meta Business Suite-ийн Planner хэсэгт ороод пост үүсгэнэ, Facebook, Instagram хоёуланг нь сонгоно, өдөр цагаа тавина. 7 өдрийг 10 минутад хийчихнэ.</p>
-    <p>Ямар цагт тавих вэ гэвэл Insights дээр дагагчид чинь хэзээ онлайн байдгийг харуулдаг. Тэр цагаа сонго.</p>
-    <p>Тэгэхээр нэг үдээс хойш суугаад бүтэн долоо хоногийн пост бэлэн болчихно. Энэ чинь workflow-ийн хүч.</p>
-  </aside>
-</section>
-
-<!-- 13 QC CHECKLIST -->
-<section class="slide alt" data-time="5:00">
-  <p class="eyebrow">04 · Quality control</p>
-  <h2 class="t">Make AI Mongolian sound human</h2>
+  <p class="eyebrow">01 · How AI reads</p>
+  <h2 class="t">AI reads tokens, not words</h2>
   <div class="row" style="gap:56px">
-    <table class="tb" style="flex:1.25;font-size:23px">
-      <tr><th style="width:50%"><span class="bad">Stiff (AI)</span></th><th><span class="good">Natural</span></th></tr>
-      <tr><td>Эрхэм хүндэт хэрэглэгч та бүхэндээ…</td><td>Сайн уу, найзуудаа 👋</td></tr>
-      <tr><td>Худалдан авснаар та … боломжтой</td><td>Авбал …</td></tr>
-      <tr><td>Манай байгууллага танд хүргэж байна</td><td>Манайд шинэ … ирлээ</td></tr>
-      <tr><td>Гайхалтай мөчүүдийг хамтдаа бүтээцгээе</td><td>Хамт ирээд сууя л даа</td></tr>
-    </table>
-    <div class="col" style="flex:1;border-top:none;padding-top:0;gap:10px">
-      <h3>The 6-point check</h3>
-      <p class="small">1. Read it out loud: would a friend say it?</p>
-      <p class="small">2. No stiff openers or translated phrases</p>
-      <p class="small">3. Correct grammar and case endings</p>
-      <p class="small">4. No random Russian or English words</p>
-      <p class="small">5. Every fact checked: price, hours, address</p>
-      <p class="small">6. No health or "guaranteed" claims</p>
-    </div>
-  </div>
-  <aside class="notes">
-    <p>Дөрөвдүгээр хэсэг, <b>чанарын шалгалт.</b> Монголд яг энэ л чамайг бусдаас ялгана.</p>
-    <p>Зүүн талыг хараарай. AI-ийн бичдэг хиймэл монгол, баруун талд жинхэнэ хүний ярьдаг монгол. <i>[Мөр мөрөөр нь уншиж өг.]</i> 'Эрхэм хүндэт хэрэглэгч та бүхэндээ', хэн ингэж ярьдаг юм бэ, нээрээ. 'Сайн уу, найзуудаа' гэхэд л болно. 'Худалдан авснаар та боломжтой' биш, 'авбал'. Гэх мэт.</p>
-    <p>Баруун талд 6 шалгалт. Хамгийн чухал нь эхнийх: <b>чангаар уншаад, найз чинь ингэж хэлэх үү?</b> Хэлэхгүй бол засна.</p>
-    <p>Тэгээд хиймэл эхлэл байхгүй, дүрэм, нөхцөл зөв, дунд нь орос англи үг байхгүй, баримт бүгд шалгагдсан, эрүүл мэндийн болон 'баталгаатай' гэх мэт амлалт байхгүй.</p>
-    <p><i>[Дасгал: AI-ийн бичсэн нэг хиймэл постыг дэлгэцэнд гаргаад ангиар засуул, 2 минут.]</i></p>
-  </aside>
-</section>
-
-<!-- 14 OFFER LADDER -->
-<section class="slide" data-time="3:00">
-  <p class="eyebrow">05 · Your first client</p>
-  <h2 class="t">Package it. Don't sell hours.</h2>
-  <div class="steps" style="gap:24px">
-    <div class="step"><p class="k">1</p><h3>Free sample week</h3><p class="small">7 posts with images. Builds trust and your portfolio.</p></div>
-    <p class="arrow">→</p>
-    <div class="step" style="border-top-color:var(--navy)"><p class="k" style="color:var(--navy)">2</p><h3>Monthly package</h3><p class="small">e.g. 12 posts + calendar + scheduling.<br><b>[₮ ______ / month]</b></p></div>
-    <p class="arrow">→</p>
-    <div class="step"><p class="k">3</p><h3>Add-ons</h3><p class="small">Reels, ad text, menu or poster redesign.<br><b>[₮ ______ each]</b></p></div>
-  </div>
-  <div class="spacer"></div>
-  <p class="callout">Sell the outcome: <b>"Your page posts 3 times a week, every week, and you don't have to think about it."</b></p>
-  <aside class="notes">
-    <p>Тав дахь хэсэг, <b>анхны клиент.</b></p>
-    <p>Гол санаа: <b>цагаа биш, багцаа зар.</b> 'Би цагт тэдэн төгрөг' гэвэл хүмүүс ойлгохгүй. 'Сард 12 пост, төлөвлөгөөтэй, цагийг нь тохируулаад өгнө' гэвэл шууд ойлгоно.</p>
-    <p>Гурван шат бий. Нэгд, <b>үнэгүй долоо хоног</b>: итгэл олж, портфолиотой болно. Хоёрт, <b>сарын багц</b>. Гуравт, <b>нэмэлт</b>: Reels, зарын текст, постер.</p>
-    <p><i>[Үнийг өөрөө тавь: зах зээлийн жишээ, эхлэгчийн бодит үнэ.]</i></p>
-    <p>Тэгээд үр дүнг нь зар. 'Танай хуудас долоо хоногт 3 удаа тогтмол пост тавина, та санаа зовох хэрэггүй.' Эзэн хүнд энэ л хэрэгтэй.</p>
-  </aside>
-</section>
-
-<!-- 15 DM TEMPLATE -->
-<section class="slide" data-time="3:00">
-  <p class="eyebrow">05 · Your first client</p>
-  <h2 class="t">The message that gets a reply</h2>
-  <div class="row" style="align-items:flex-start;gap:48px">
-    <div class="box" style="flex:1.4">
-      <p style="font-size:27px;line-height:1.55">Сайн байна уу! Би <b>[нэр]</b>. Танай <b>[бизнес]</b>-ийн хуудсыг үзлээ, <b>[нэг сайн зүйл]</b> нь их таалагдсан.<br><br>Танай хуудсанд зориулж нэг долоо хоногийн 7 пост үнэгүй хийчихлээ. Зураг, текст нь бэлэн. Үзээд таалагдвал цааш хамтран ажиллах уу? 🙂</p>
+    <div style="flex:1.2;display:flex;flex-direction:column;gap:22px">
+      <p class="lead">Before AI reads anything, text is chopped into small pieces called <b>tokens</b>. Common English words are often one piece. Rarer words, and many Mongolian words, get split into several.</p>
+      <div class="box" style="gap:20px">
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="chip">Hello</span><span class="chip">,</span><span class="chip"> how</span><span class="chip"> are</span><span class="chip"> you</span><span class="chip">?</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><span class="chip" style="background:#FDEBDD;color:#7C2D12">Сай</span><span class="chip" style="background:#FDEBDD;color:#7C2D12">н</span><span class="chip" style="background:#FDEBDD;color:#7C2D12"> бай</span><span class="chip" style="background:#FDEBDD;color:#7C2D12">на</span><span class="chip" style="background:#FDEBDD;color:#7C2D12"> уу</span><span class="chip" style="background:#FDEBDD;color:#7C2D12">?</span></div>
+        <p class="small" style="font-size:20px">Illustrative splits. Real ones vary by model.</p>
+      </div>
     </div>
     <div class="col hi" style="flex:1">
-      <h3>Why it works</h3>
-      <p class="small"><b>Personal:</b> shows you actually looked at their page.</p>
-      <p class="small"><b>Gives first:</b> the work is already done.</p>
-      <p class="small"><b>Easy yes:</b> no price, no pressure in message one.</p>
-      <p class="small"><b>Follow up once</b> after 3 days. Then move on.</p>
+      <h3>Why it matters</h3>
+      <p class="small"><b>Spelling and counting:</b> AI sees chunks, not letters, so "how many r's in strawberry?" used to trip models up.</p>
+      <p class="small"><b>Mongolian:</b> more pieces per word and less training text, so it's often slower and less fluent.</p>
+      <p class="small"><b>Limits and cost:</b> everything is measured in tokens.</p>
     </div>
   </div>
   <aside class="notes">
-    <p>Тэгээд яаж бичих вэ? Энэ мессежийг шууд хуулаад хэрэглэж болно.</p>
-    <p><i>[Мессежийг уншиж өг.]</i></p>
-    <p>Яагаад ажилладаг вэ гэхээр, нэгд, <b>хувийн</b>. Хуудсыг нь нээрээ үзсэнээ харуулж байна. 'Танай латтены зураг их гоё юм' гэх мэт нэг юм заавал хэл. Хүн бүрт ижилхэн мессеж явуулбал тоохгүй.</p>
-    <p>Хоёрт, <b>эхлээд өгч байна.</b> Ажил аль хэдийн хийгдчихсэн.</p>
-    <p>Гуравт, <b>'тийм' гэхэд амар.</b> Эхний мессежид үнэ ярихгүй, шахахгүй.</p>
-    <p>Хариу ирэхгүй бол 3 хоногийн дараа нэг удаа л сануулна. Тэгээд дараагийн бизнес рүү. Бүгд хариулахгүй, энэ хэвийн зүйл. Арваас нэг, хоёр хариулбал сайн.</p>
+    <p>За, эхний суурь ойлголт. AI үг уншдаггүй. <b>Токен</b> уншдаг.</p>
+    <p>Текстийг AI-д өгөхөөс өмнө жижиг хэсгүүдэд хуваадаг. Энэ хэсгийг токен гэдэг. Англи хэлний түгээмэл үг ихэнхдээ нэг токен. Харин ховор үг, тэгээд монгол үгс олон хэсэгт хуваагддаг. <i>[Чипүүдийг заа.]</i> Энэ бол жишээ шүү, загвар бүр өөрөөр хуваадаг.</p>
+    <p>Яагаад чухал вэ? Нэгд, AI үсэг биш хэсэг хардаг. Тийм болохоор 'strawberry гэдэг үгэнд хэдэн r үсэг байна?' гэж асуухаар хуучин загварууд алддаг байсан. Тоолох, үсэглэх нь AI-ийн сул тал.</p>
+    <p>Хоёрт, <b>монгол хэл</b>. Үг бүр илүү олон хэсэгт хуваагдана, тэгээд сурсан монгол текст нь англиас хамаагүй бага. Тийм учраас монголоор удаан, алдаа ихтэй байдаг. Өнгөрсөн удаа 'монголоор сул' гэж хэлсний нэг шалтгаан нь энэ.</p>
+    <p>Гуравт, хязгаар, үнэ бүгд токеноор хэмжигддэг.</p>
   </aside>
 </section>
 
-<!-- 16 TESTIMONIAL + SAFETY -->
-<section class="slide alt" data-time="2:00">
-  <p class="eyebrow">05 · Your first client</p>
-  <h2 class="t">Proof, and how to work safely</h2>
-  <div class="row">
-    <div class="col hi"><h3>Get a testimonial</h3><p class="small">After 1–2 weeks: "Надтай ажилласан тухайгаа 1–2 өгүүлбэрээр бичээд өгөх үү?"</p><p class="small">Track before and after: reach, comments, messages. Numbers sell the next client.</p></div>
-    <div class="col warn"><h3 style="color:var(--orange)">Never take a password</h3><p class="small">Ask the owner to add you in Meta Business Suite (Settings → People) with limited access, or send the posts for them to schedule.</p><p class="small">Anything with money or contracts: <b>do it with a parent.</b></p></div>
+<!-- 5 CONTEXT WINDOW -->
+<section class="slide" data-time="4:00">
+  <p class="eyebrow">01 · How AI reads</p>
+  <h2 class="t">Its working memory has a limit</h2>
+  <p class="lead">Everything in one chat (your messages, its answers, pasted files) sits in a <b>context window</b>. It's big, but not endless, and long chats get messy.</p>
+  <div style="display:flex;height:84px;border:1px solid var(--line);background:#fff">
+    <div style="flex:1.2;background:#E8EEFD;display:flex;align-items:center;padding:0 22px;font-size:22px;color:var(--navy)">Start: remembered well</div>
+    <div style="flex:2;background:#F3F4F6;display:flex;align-items:center;padding:0 22px;font-size:22px;color:var(--muted)">Middle of a long chat: easier to overlook</div>
+    <div style="flex:1.2;background:#E8EEFD;display:flex;align-items:center;padding:0 22px;font-size:22px;color:var(--navy)">Latest: remembered well</div>
+  </div>
+  <div class="grid3">
+    <div class="col hi"><h3>New topic → new chat</h3><p class="small">Old, unrelated messages confuse the answer.</p></div>
+    <div class="col hi"><h3>Important info first</h3><p class="small">Put rules and context at the start, and repeat key ones.</p></div>
+    <div class="col hi"><h3>Long chat? Reset</h3><p class="small">"Summarize what we decided", then paste it into a fresh chat.</p></div>
   </div>
   <aside class="notes">
-    <p>Хоёр чухал юм.</p>
-    <p>Нэгд, <b>сэтгэгдэл ав.</b> Нэг хоёр долоо хоногийн дараа эзнээс 'надтай ажилласан тухайгаа нэг хоёр өгүүлбэрээр бичээд өгөх үү?' гэж асуу. Бас өмнө нь болон дараа нь хэдэн хүнд хүрсэн, хэдэн коммент, хэдэн мессеж ирсэн гэдгийг тэмдэглэ. Тэр тоо дараагийн клиентийг чинь авчирна.</p>
-    <p>Хоёрт, <b>аюулгүй байдал.</b> Хэзээ ч бизнесийн эзнээс нууц үг нь бүү ав. Meta Business Suite дээр эзэн чамайг Settings, People гэдгээр хязгаарлагдмал эрхтэй нэмж өгч болно. Эсвэл постуудаа явуулаад өөрөөр нь тавиулна.</p>
-    <p>Мөнгө, гэрээтэй холбоотой бүх юмыг <b>аав ээжтэйгээ хамт</b> хий.</p>
+    <p>Хоёр дахь ойлголт: AI-ийн <b>ажлын санах ой</b>. Context window гэдэг.</p>
+    <p>Нэг чат доторх бүх юм, таны мессеж, түүний хариулт, хуулж тавьсан файл, бүгд энэ цонхонд багтдаг. Орчин үеийн загваруудынх их том, гэхдээ хязгааргүй биш.</p>
+    <p>Бас нэг сонин юм бий. Урт чатын <b>дунд хэсгийг</b> AI амархан орхигдуулдаг гэж судалгаанууд харуулсан. Эхэнд нь болон хамгийн сүүлд нь байгаа юмыг сайн санадаг. Хүн ч гэсэн урт лекцийн эхлэл, төгсгөлийг илүү санадаг шүү дээ.</p>
+    <p>Тэгэхээр гурван дүрэм. Нэгд, <b>сэдэв солигдвол шинэ чат нээ</b>. Хоёрт, <b>чухал мэдээллээ эхэнд нь тавь</b>. Гуравт, чат хэт уртсаад AI будилж эхэлбэл 'одоог хүртэл юу шийдсэнийг товчилж бич' гээд, тэрийг шинэ чатад хуулж тавиад үргэлжлүүл.</p>
+  </aside>
+</section>
+
+<!-- 6 MYTHS -->
+<section class="slide alt" data-time="3:00">
+  <p class="eyebrow">02 · Myths vs. reality</p>
+  <h2 class="t">Three things people get wrong</h2>
+  <table class="tb" style="font-size:26px">
+    <tr><th style="width:38%"><span class="bad">Myth</span></th><th><span class="good">Reality</span></th></tr>
+    <tr><td>"It learns from me while we chat."</td><td>Its brain is fixed after training. "Memory" features just save notes about you and add them to the chat.</td></tr>
+    <tr><td>"It searches the internet for every answer."</td><td>Only when it has a search tool turned on. Otherwise it answers from what it learned in training.</td></tr>
+    <tr><td>"It understands me like a person."</td><td>It predicts likely text from patterns. Very useful, but not thinking the way you do.</td></tr>
+  </table>
+  <div class="spacer"></div>
+  <p class="callout">Knowing this tells you <b>what to give it</b>: context, sources, or a search tool.</p>
+  <aside class="notes">
+    <p>Одоо хүмүүсийн их итгэдэг гурван буруу ойлголт.</p>
+    <p><b>Нэгд: 'Надтай ярилцаж байхдаа суралцдаг.'</b> Үгүй. Сургалт дууссаны дараа 'тархи' нь тогтсон. Зарим апп-ын 'memory' гэдэг нь таны тухай тэмдэглэл хадгалаад, дараагийн чатад нэмж өгдөг. Тархи нь өөрчлөгдөж байгаа юм биш, тэмдэглэлийн дэвтэр л.</p>
+    <p><b>Хоёрт: 'Хариулт болгоныг интернетээс хайдаг.'</b> Үгүй. Хайлтын хэрэгсэл нь асаалттай үед л хайна. Үгүй бол сурсан юмнаасаа л хариулна.</p>
+    <p><b>Гуравт: 'Намайг хүн шиг ойлгодог.'</b> Үгүй. Хэв маягаас хамгийн магадлалтай текстийг таамагладаг. Их хэрэгтэй, гэхдээ та нар шиг бодож байгаа юм биш.</p>
+    <p>Энийг мэдсэнээр юу өгөх хэрэгтэйгээ мэднэ: контекст, эх сурвалж, эсвэл хайлтын хэрэгсэл.</p>
+  </aside>
+</section>
+
+<!-- 7 RANDOMNESS -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">03 · Why answers change</p>
+  <h2 class="t">Same question, different answers</h2>
+  <div class="row" style="gap:56px">
+    <div style="flex:1;display:flex;flex-direction:column;gap:20px">
+      <p class="lead">AI doesn't always pick the single most likely next word. It adds a little <b>randomness</b>, so ask twice and you get two different answers.</p>
+      <div class="box">
+        <p class="small"><b>Ask twice:</b> "Give me a name for a coffee shop near a university."</p>
+        <p style="font-size:26px">Try 1 → <b>"Study Brew"</b> &nbsp;·&nbsp; Try 2 → <b>"Тархины Кофе"</b></p>
+      </div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;gap:18px">
+      <div class="col hi"><h3>For ideas: use it</h3><p class="small">Ask for 10 options, regenerate, mix the best parts.</p></div>
+      <div class="col warn"><h3 style="color:var(--orange)">For facts: be careful</h3><p class="small">If two tries give different "facts", at least one is wrong. That's a red flag.</p></div>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Гурав дахь: яагаад нэг асуултад өөр өөр хариулт өгөөд байдаг вэ?</p>
+    <p>AI хамгийн магадлалтай үгийг заавал сонгодоггүй. Жаахан <b>санамсаргүй байдал</b> нэмдэг. Тэгэхгүй бол бүх хариулт уйтгартай, адилхан болно.</p>
+    <p><i>[Демо: 'Их сургуулийн ойролцоох кофе шопод нэр санал болго' гэдгийг хоёр удаа асуу. Хоёр өөр хариу гарна.]</i></p>
+    <p>Тэгэхээр хоёр дүрэм. <b>Санаа хэрэгтэй үед энэ давуу тал.</b> 10 санаа гаргуул, дахин гаргуул, хамгийн сайнуудыг нь холь.</p>
+    <p>Харин <b>баримт хэрэгтэй үед анхаар.</b> Хоёр удаа асуухад хоёр өөр 'баримт' гарвал ядаж нэг нь буруу. Энэ бол улаан гэрэл. Энэ бас нэг шалгах арга шүү: эргэлзээтэй бол дахиад асуу.</p>
+  </aside>
+</section>
+
+<!-- 8 CUTOFF + TOOLS -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">03 · Why answers change</p>
+  <h2 class="t">What it knows, and when it learned it</h2>
+  <div class="steps" style="gap:24px">
+    <div class="step"><p class="k">Training</p><h3>Learns from data</h3><p class="small">Up to a <b>cutoff date</b>. Nothing after that.</p></div>
+    <p class="arrow">→</p>
+    <div class="step" style="border-top-color:var(--orange)"><p class="k" style="color:var(--orange)">Gap</p><h3>The world moves on</h3><p class="small">New prices, news, exchange rates, events. It doesn't know them.</p></div>
+    <p class="arrow">→</p>
+    <div class="step"><p class="k">Tools</p><h3>Search, files, code</h3><p class="small">With tools on, it can look things up and calculate.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="row">
+    <p class="callout warn" style="flex:1">"What's today's ₮ to $ rate?" with no search: <b>a guess that sounds sure.</b></p>
+    <p class="callout" style="flex:1">Anything recent → <b>turn on search</b> and check the date of each source.</p>
+  </div>
+  <aside class="notes">
+    <p>AI юу мэддэг, хэзээ сурсан бэ?</p>
+    <p>AI нэг <b>огноо хүртэлх</b> өгөгдлөөс сурдаг. Cutoff гэдэг. Түүнээс хойш болсон юмыг мэдэхгүй. Шинэ үнэ, мэдээ, ханш, болсон үйл явдал гэх мэт.</p>
+    <p>Жишээ нь хайлтгүй AI-аас 'өнөөдөр долларын ханш хэд вэ?' гэж асуувал ихэнхдээ итгэлтэй сонсогдох таамаг хэлнэ. Шинэ загварууд 'мэдэхгүй' гэх нь олширсон, гэхдээ найдаж болохгүй.</p>
+    <p>Харин <b>хэрэгсэлтэй</b> бол өөр. Хайлт асаалттай бол интернетээс хайна, файл уншина, код ажиллуулж тооцоолно.</p>
+    <p>Дүрэм нь энгийн: <b>сүүлийн үеийн юм бол хайлтаа асаа</b>, тэгээд эх сурвалж бүрийн огноог шалга.</p>
+  </aside>
+</section>
+
+<!-- 9 MODEL TYPES -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">03 · Why answers change</p>
+  <h2 class="t">Different models for different jobs</h2>
+  <table class="tb">
+    <tr><th style="width:26%">Type</th><th style="width:44%">Best for</th><th>Examples</th></tr>
+    <tr><td>Fast chat</td><td>Quick questions, rewriting, ideas</td><td>Claude, ChatGPT, Gemini</td></tr>
+    <tr class="hl"><td>Reasoning ("thinking")</td><td>Maths, planning, hard problems, step by step</td><td>Thinking modes in the same apps</td></tr>
+    <tr><td>Vision</td><td>Reading photos, screenshots, charts, handwriting</td><td>Upload an image to the chat</td></tr>
+    <tr><td>Image and video</td><td>Making visuals</td><td>Canva Magic Media, Higgsfield</td></tr>
+    <tr><td>Voice</td><td>Speech to text, text to speech</td><td>Phone dictation, Chimege</td></tr>
+  </table>
+  <aside class="notes">
+    <p>Бүх AI адилхан биш. Ажилд нь тохирох төрлийг сонгоно.</p>
+    <p><b>Хурдан чат</b>: энгийн асуулт, засвар, санаа. <b>Бодолтой загвар</b>, ихэнх апп-д 'thinking' гэсэн горим байдаг: математик, төлөвлөгөө, хэцүү асуудал. Хариулахаасаа өмнө алхам алхмаар боддог, тийм болохоор удаан ч илүү нарийн.</p>
+    <p><b>Харах чадвар</b>: зураг, скриншот, график, гар бичмэл уншина. <b>Зураг, видео</b> хийдэг загварууд. <b>Дуу хоолой</b>: ярианаас текст, текстээс яриа.</p>
+    <p>Хэцүү математик бодлого хурдан чатад өгвөл алдах магадлал өндөр. Бодолтой горимд өгвөл илүү найдвартай.</p>
+  </aside>
+</section>
+
+<!-- 10 VISION ACTIVITY -->
+<section class="slide alt" data-time="4:00">
+  <p class="eyebrow">Activity · 4 minutes</p>
+  <h2 class="t">Show AI a photo</h2>
+  <div class="grid3">
+    <div class="col hi"><p class="num">1</p><h3>A menu or sign</h3><p class="small">"Translate this and tell me what you'd recommend for someone who doesn't like sweet things."</p></div>
+    <div class="col hi"><p class="num">2</p><h3>A homework problem</h3><p class="small">"Don't solve it. Tell me which concept this tests and give me a hint for step 1."</p></div>
+    <div class="col hi"><p class="num">3</p><h3>A chart or screenshot</h3><p class="small">"Explain this to me in 3 bullet points. What's the most surprising thing?"</p></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="callout">Then check: did it read everything correctly? <b>Vision makes mistakes too</b>, especially with small text and handwriting.</p>
+  <aside class="notes">
+    <p>За, дасгал. Утсаа гарга. 4 минут.</p>
+    <p>Гурваас нэгийг сонго. Нэгд, цэс эсвэл бичиг. Зургийг нь аваад орчуулуул, санал болгуул. Хоёрт, гэрийн даалгаврын бодлого. Гэхдээ <b>'бүү бод, ямар ойлголт шалгаж байгааг хэлээд эхний алхамд зөвлөгөө өг'</b> гэж бич. Энэ чинь дараа үзэх 'AI-тай суралцах'-ын эхлэл. Гуравт, график эсвэл скриншот.</p>
+    <p><i>[4 минутын дараа 2–3 хүнээс үр дүнг асуу.]</i></p>
+    <p>Тэгээд шалга: бүгдийг нь зөв уншсан уу? Харах чадвар ч бас алддаг, ялангуяа жижиг үсэг, гар бичмэл дээр.</p>
+  </aside>
+</section>
+
+<!-- 11 HALLUCINATION -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">04 · Trust, but verify</p>
+  <h2 class="t">Where AI is most likely to make things up</h2>
+  <div class="row" style="gap:56px">
+    <table class="tb" style="flex:1.3;font-size:24px">
+      <tr><th style="width:44%">Topic</th><th>Risk</th></tr>
+      <tr><td>Names, quotes, dates</td><td><span class="bad">High</span>: invents plausible ones</td></tr>
+      <tr><td>Links and sources</td><td><span class="bad">High</span>: may cite pages that don't exist</td></tr>
+      <tr><td>Numbers and maths</td><td><span class="bad">High</span> without tools</td></tr>
+      <tr><td>Mongolian local facts</td><td><span class="bad">High</span>: little training data</td></tr>
+      <tr><td>Health, law, money advice</td><td><span class="bad">High stakes</span>: always check</td></tr>
+      <tr><td>Rewriting your own text</td><td><span class="good">Low</span>: it has the facts you gave it</td></tr>
+    </table>
+    <div class="col hi" style="flex:1">
+      <h3>Why it happens</h3>
+      <p class="small">It predicts text that <b>sounds right</b>. When it doesn't know, it doesn't stay quiet. It fills the gap with something plausible.</p>
+      <p class="small">The less it saw about a topic during training, the more it guesses.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>Дөрөвдүгээр хэсэг. Хамгийн чухал ур чадваруудын нэг: <b>итгэ, гэхдээ шалга.</b></p>
+    <p>AI хаана хамгийн их зохиодог вэ? <i>[Хүснэгтийг уншиж өг.]</i> Нэр, ишлэл, огноо. Холбоос, эх сурвалж: байхгүй вэбсайт ч иш татчихдаг. Тоо, тооцоо. Тэгээд <b>Монголын орон нутгийн мэдээлэл</b>: Улаанбаатарын аль дүүрэгт юу байдаг, Монголын хууль, монгол хүмүүсийн тухай. Сурсан мэдээлэл нь бага болохоор илүү их таамагладаг.</p>
+    <p>Харин таны өөрийн текстийг засуулах бол эрсдэл бага. Баримтыг нь та өгчихсөн учраас.</p>
+    <p>Яагаад ийм байдаг вэ? Зөв <b>сонсогдох</b> текстийг таамагладаг учраас. Мэдэхгүй үедээ дуугүй байдаггүй, үнэмшилтэй юмаар нөхчихдөг.</p>
+  </aside>
+</section>
+
+<!-- 12 FACT-CHECK -->
+<section class="slide" data-time="5:00">
+  <p class="eyebrow">04 · Trust, but verify</p>
+  <h2 class="t">The 4-step fact check</h2>
+  <div class="steps" style="gap:20px">
+    <div class="step"><p class="k">1</p><h3>Ask it to doubt itself</h3><p class="small">"How sure are you? What part might be wrong?"</p></div>
+    <div class="step"><p class="k">2</p><h3>Open the sources</h3><p class="small">Does the link exist? Does it actually say that?</p></div>
+    <div class="step"><p class="k">3</p><h3>Cross-check</h3><p class="small">A second trusted source, or ask another AI.</p></div>
+    <div class="step"><p class="k">4</p><h3>Go local</h3><p class="small">Mongolian facts: official sites, news, or a person who knows.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="box" style="background:var(--bg2);border:none">
+    <p class="eyebrow">Group challenge · 3 minutes</p>
+    <p style="font-size:27px;line-height:1.5">I'll show an AI answer about Mongolia with <b>2 hidden mistakes</b>. First group to find both, and prove it, wins.</p>
+  </div>
+  <aside class="notes">
+    <p>Тэгэхээр яаж шалгах вэ? Дөрвөн алхам.</p>
+    <p><b>Нэгд, өөрөөр нь эргэлзүүл.</b> 'Хэр итгэлтэй байна? Аль хэсэг нь буруу байж магадгүй?' гэж асуу. Ихэнхдээ сул газраа өөрөө хэлдэг.</p>
+    <p><b>Хоёрт, эх сурвалжаа нээ.</b> Холбоос нээгдэж байна уу? Тэр хуудсанд нээрээ тэгж бичсэн үү? Ихэнх хүн энийг алгасдаг.</p>
+    <p><b>Гуравт, хөндлөн шалга.</b> Өөр найдвартай эх сурвалж, эсвэл өөр AI-аас асуу.</p>
+    <p><b>Дөрөвт, орон нутгийн мэдээлэл бол орон нутгийн эх сурвалж.</b> Албан ёсны сайт, мэдээ, эсвэл мэддэг хүнээс асуу.</p>
+    <p><i>[Тоглоом: урьдчилж бэлдсэн, 2 алдаатай AI хариултыг дэлгэцэнд гарга. Жишээ нь Монголын түүх, газарзүйн тухай. Багуудаар 3 минут. Хоёр алдааг олж, баталсан баг ялна.]</i></p>
+  </aside>
+</section>
+
+<!-- 13 LEARN WITH AI -->
+<section class="slide" data-time="4:00">
+  <p class="eyebrow">05 · Learn with AI</p>
+  <h2 class="t">Outsource the work, or grow the skill?</h2>
+  <div class="row">
+    <div class="col warn"><h3 style="color:var(--orange)">"Do it for me"</h3><p class="small">"Solve this." "Write my essay."</p><p class="small">Fast today. But you learned nothing, and you can't check if it's right.</p></div>
+    <div class="col hi"><h3>"Teach me"</h3><p class="small">"Explain it, then test me." "Ask me questions."</p><p class="small">A bit slower. But the skill stays with you, and you can catch AI's mistakes.</p></div>
+  </div>
+  <div class="grid3" style="gap:24px 40px">
+    <p class="small"><b>Explain like I'm 15:</b> simple words, one real example.</p>
+    <p class="small"><b>Socratic:</b> "Don't answer. Ask me questions until I get it."</p>
+    <p class="small"><b>Feynman:</b> "I'll explain it back. Find the gaps."</p>
+  </div>
+  <div class="spacer"></div>
+  <p class="statement">If AI did the thinking, <span>you didn't learn it.</span></p>
+  <aside class="notes">
+    <p>Тав дахь хэсэг. Энэ та нарын насанд хамгийн чухал нь байж магадгүй.</p>
+    <p>AI-г хоёр янзаар хэрэглэж болно. <b>'Миний оронд хий'</b>: 'энийг бод', 'эссэ бичээд өг'. Өнөөдөр хурдан. Гэхдээ юу ч сураагүй. Бас зөв эсэхийг нь шалгаж чадахгүй, учир нь өөрөө мэдэхгүй.</p>
+    <p>Эсвэл <b>'намайг заа'</b>: 'тайлбарлаад шалга', 'надаас асуулт асуу'. Жаахан удаан. Гэхдээ ур чадвар чинь өөрт чинь үлдэнэ. Бас AI-ийн алдааг барьж чаддаг болно.</p>
+    <p>Гурван арга: <b>15 настай хүнд тайлбарла</b>, энгийн үг, нэг бодит жишээ. <b>Сократын арга</b>: 'бүү хариул, намайг ойлгох хүртэл асуулт асуу'. <b>Фейнманы арга</b>: 'би буцаагаад тайлбарлая, дутуу газрыг минь ол'.</p>
+    <p>Санаж аваарай: <b>AI бодсон бол чи сураагүй.</b></p>
+  </aside>
+</section>
+
+<!-- 14 TUTOR PROMPT -->
+<section class="slide alt" data-time="3:00">
+  <p class="eyebrow">05 · Learn with AI</p>
+  <h2 class="t">Your personal tutor prompt</h2>
+  <pre class="mono" style="font-size:25px">I'm 15 and I'm learning <b style="color:var(--blue)">[topic]</b>. My level: <b style="color:var(--blue)">[beginner / some basics]</b>.
+Be my tutor. Don't give me the answers.
+1. Explain the core idea in simple words with one real example.
+2. Ask me one question at a time and wait for my answer.
+3. If I'm wrong, show me where my thinking went wrong.
+4. Make each question a little harder than the last.
+5. After 5 questions, tell me what I understand and what to practise next.</pre>
+  <div class="spacer"></div>
+  <p class="callout">Works for anything: maths, English, Canva, coding, even learning to write better prompts.</p>
+  <aside class="notes">
+    <p>Энэ бол та нарын хувийн багшийн prompt. Хуулаад аваарай, гарын авлага дээр бий.</p>
+    <p><i>[Уншиж өг.]</i> Хараарай, өнгөрсөн удаа сурсан зүйлүүд бүгд байна: дүр (багш), контекст (15 настай, түвшин), даалгавар, формат (нэг удаад нэг асуулт), хязгаарлалт (хариуг бүү хэл).</p>
+    <p>Үүнийг юунд ч хэрэглэж болно. Математик, англи хэл, Canva, код, бүр prompt бичих чадвараа сайжруулахад ч.</p>
+    <p><i>[Демо: нэг сэдвээр 2 асуулт хүртэл шууд үзүүл. Жишээ нь 'хувь' эсвэл англи хэлний 'present perfect'.]</i></p>
+  </aside>
+</section>
+
+<!-- 15 PRIVACY -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">06 · Safe and honest</p>
+  <h2 class="t">What never goes into a chatbot</h2>
+  <div class="grid3">
+    <div class="col warn"><h3>Passwords and codes</h3><p class="small">Including one-time SMS codes. No real service will ever ask an AI for them.</p></div>
+    <div class="col warn"><h3>ID numbers</h3><p class="small">Регистрийн дугаар, passport, bank card numbers.</p></div>
+    <div class="col warn"><h3>Other people's private info</h3><p class="small">Their photos, chats, phone numbers, addresses, without permission.</p></div>
+    <div class="col warn"><h3>Private records</h3><p class="small">School grades, medical info, family money matters.</p></div>
+    <div class="col warn"><h3>Anything you'd hate to see public</h3><p class="small">Treat a chat like a message to a company, not a diary.</p></div>
+    <div class="col hi"><h3>Check your settings</h3><p class="small">Many apps let you turn off "use my chats for training". Look for it.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Зургаа дахь хэсэг, <b>аюулгүй, шударга.</b></p>
+    <p>Чатботод хэзээ ч юу бичихгүй вэ? <b>Нууц үг, код</b>, тэр дундаа мессежээр ирдэг нэг удаагийн код. Ямар ч жинхэнэ үйлчилгээ AI-аар дамжуулж тэрийг асуудаггүй. <b>Регистрийн дугаар, паспорт, картын дугаар.</b> <b>Бусдын хувийн мэдээлэл</b>: зураг, чат, утас, хаяг, зөвшөөрөлгүйгээр. <b>Хувийн бичиг</b>: дүн, эмнэлгийн, гэр бүлийн мөнгөний асуудал.</p>
+    <p>Энгийн дүрэм: <b>чатыг өдрийн тэмдэглэл биш, компанид бичиж байгаа мессеж гэж бод.</b> Олон нийтэд гарахад дургүй юмаа бүү бич.</p>
+    <p>Бас тохиргоогоо шалга. Олон апп-д 'миний чатыг сургалтад ашиглах' гэдгийг унтраах сонголт байдаг.</p>
+  </aside>
+</section>
+
+<!-- 16 HONEST + FAIR -->
+<section class="slide" data-time="3:00">
+  <p class="eyebrow">06 · Safe and honest</p>
+  <h2 class="t">Using AI the right way</h2>
+  <div class="grid2">
+    <div class="col warn"><h3 style="color:var(--orange)">No deepfakes of real people</h3><p class="small">Never make fake photos, videos or voices of a real person without their consent. It can seriously hurt someone, and it can be illegal.</p></div>
+    <div class="col"><h3>Watch for bias</h3><p class="small">AI repeats patterns from its data. Ask: whose view is missing? Would this be fair to everyone?</p></div>
+    <div class="col"><h3>Respect others' work</h3><p class="small">Don't copy another creator's content or brand and call it yours, AI-made or not.</p></div>
+    <div class="col hi"><h3>Be upfront</h3><p class="small">Say when you used AI. Follow your school's rules. "AI detectors" are unreliable. Honesty is what protects you.</p></div>
+  </div>
+  <aside class="notes">
+    <p>Тэгээд AI-г зөв хэрэглэх дөрвөн дүрэм.</p>
+    <p><b>Жинхэнэ хүний deepfake хэзээ ч бүү хий.</b> Ангийнхаа хүүхэд, багш, алдартай хүний хуурамч зураг, видео, дуу хоолойг зөвшөөрөлгүй хийх. Хүнийг маш их гомдоож, хохироож болно, хуулиар ч хориотой байж болно. Энэ бол хатуу хил.</p>
+    <p><b>Нэг талыг барихыг анзаар.</b> 'Хэний үзэл бодол дутуу байна? Бүх хүнд шударга уу?' гэж асуу.</p>
+    <p><b>Бусдын бүтээлийг хүндэл.</b> Өөр хүний контент, брэндийг хуулаад өөрийнх гэж бүү хэл, AI-аар хийсэн ч гэсэн.</p>
+    <p><b>Нуухгүй.</b> AI хэрэглэсэн бол хэл, сургуулийнхаа дүрмийг дага. Бас 'AI шалгагч' программууд найдвартай биш, жинхэнэ хүний бичсэнийг ч AI гэж буруу тогтоодог. Тийм болохоор чамайг хамгаалдаг зүйл бол <b>шударга байдал.</b></p>
   </aside>
 </section>
 
@@ -487,38 +461,32 @@ the best one only.</pre>
 <section class="slide" data-time="2:00" style="flex-direction:row;align-items:center;gap:96px">
   <div style="flex:1;display:flex;flex-direction:column;gap:36px">
     <p class="eyebrow">Mission 2</p>
-    <h1 style="font-size:96px;font-weight:800;line-height:1.05;letter-spacing:-2px">One real business.<br>One real week.<br><span style="color:var(--blue)">Delivered.</span></h1>
+    <h1 style="font-size:96px;font-weight:800;line-height:1.05;letter-spacing:-2px">Learn one thing.<br>Catch one mistake.<br><span style="color:var(--blue)">Share both.</span></h1>
   </div>
   <div class="col hi" style="flex:none;width:700px;gap:22px">
-    <p style="font-size:28px;line-height:1.4"><b class="good">1</b> &nbsp;Pick a real business (with the owner's OK).</p>
-    <p style="font-size:28px;line-height:1.4"><b class="good">2</b> &nbsp;Build its context pack.</p>
-    <p style="font-size:28px;line-height:1.4"><b class="good">3</b> &nbsp;Make the week: calendar, 7 posts, images.</p>
-    <p style="font-size:28px;line-height:1.4"><b class="good">4</b> &nbsp;Send it with the message template.</p>
-    <p style="font-size:28px;line-height:1.4"><b class="good">5</b> &nbsp;Post in #showcase by <b>[day]</b>: calendar, 2 best posts, the owner's reply.</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">1</b> &nbsp;Pick one topic or skill you want to learn.</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">2</b> &nbsp;Do 3 sessions with the tutor prompt (about 20 min each).</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">3</b> &nbsp;Catch AI making a mistake, and prove it with the 4-step check.</p>
+    <p style="font-size:28px;line-height:1.4"><b class="good">4</b> &nbsp;Post in #showcase by <b>[day]</b>: what you learned, your best prompt, the mistake you caught.</p>
   </div>
   <aside class="notes">
-    <p>За, 2-р даалгавар. <b>Нэг жинхэнэ бизнес, нэг жинхэнэ долоо хоног, хүлээлгэж өгөх.</b></p>
-    <p>Нэгд, жинхэнэ бизнес сонго. Эзэн нь зөвшөөрсөн байх. Найзынхаа, ээжийнхээ, ойролцоох кафе. Хоёрт, контекст багцаа хий. Гуравт, өнөөдрийнх шиг долоо хоногоо хий: төлөвлөгөө, 7 пост, зураг. Дөрөвт, мессежийн загвараар явуул. Тавд, [өдөр] гэхэд #showcase-д тавь: төлөвлөгөө, хамгийн сайн 2 пост, эзний хариу.</p>
-    <p>Эзэн нь 'үгүй' гэсэн ч зүгээр. Тэр ч гэсэн суралцах юм. Яагаад үгүй гэснийг нь асуугаад тавиарай.</p>
+    <p>За, 2-р даалгавар. <b>Нэг юм сур. Нэг алдаа барь. Хоёуланг нь хуваалц.</b></p>
+    <p>Нэгд, сурмаар байгаа нэг сэдэв, ур чадвар сонго. Хичээл ч байж болно, Canva ч байж болно, англи хэл ч байж болно. Хоёрт, багшийн prompt-оор 3 удаа, тус бүр 20 минут суралц. Гуравт, AI-г алдаа гаргаж байхад нь барьж, 4 алхамт шалгалтаар батал. Дөрөвт, [өдөр] гэхэд #showcase-д тавь: юу сурсан, хамгийн сайн prompt чинь, барьсан алдаа чинь.</p>
+    <p>Алдаа олох нь ичмээр юм биш, ур чадвар. Хамгийн сонирхолтой алдаа барьсан хүнийг дараагийн хичээлээр онцолно.</p>
   </aside>
 </section>
 
 <!-- 18 NEXT -->
 <section class="slide alt" data-time="1:00">
   <p class="eyebrow">Next session</p>
-  <h2 class="t">Session 3: AI video that sells</h2>
-  <div class="steps">
-    <div class="step"><p class="k">1</p><h3>Source clip</h3></div>
-    <div class="step"><p class="k">2</p><h3>Mongolian script</h3></div>
-    <div class="step"><p class="k">3</p><h3>AI voice</h3></div>
-    <div class="step"><p class="k">4</p><h3>Captions + hook</h3></div>
-    <div class="step"><p class="k">5</p><h3>Post + measure</h3></div>
-  </div>
+  <h2 class="t">Session 3: From prompt to workflow</h2>
+  <p class="lead">Now that you know how AI thinks, we build with it: a reusable system that produces a full week of content, and how to offer it to a real business.</p>
   <div class="spacer"></div>
-  <p class="statement">Build context. Ship the week. <span>See you in #showcase.</span></p>
+  <p class="statement">Understand it first. <span>Then build with it.</span></p>
   <aside class="notes">
-    <p>Дараагийн удаа, <b>3-р хичээл: зардаг AI видео.</b> Өнгөрсөн удаа товч харуулсан Reels-ийн workflow-ийг бүтэн хийнэ: эх видео, монгол скрипт, AI дуу хоолой, хадмал, тавиад хэмжих.</p>
-    <p>Тэр болтол 2-р даалгавраа хийгээрэй. Контекстоо бэлд, долоо хоногоо хүлээлгэж өг. #showcase дээр уулзъя. Баярлалаа!</p>
+    <p>Дараагийн удаа, <b>3-р хичээл: prompt-оос workflow руу.</b> AI яаж боддогийг ойлгочихсон болохоор одоо түүгээр <b>бүтээнэ</b>. Бүтэн долоо хоногийн контент гаргадаг систем хийгээд, тэрийг жинхэнэ бизнест яаж санал болгохыг үзнэ.</p>
+    <p><i>[Эхэнд тэмдэглэсэн 'яагаад'-уудыг эргэж хар. Хариулагдаагүй нь байвал хурдан хариул эсвэл дараагийн хичээлд үлдээ.]</i></p>
+    <p>Эхлээд ойлго, тэгээд бүтээ. #showcase дээр уулзъя. Баярлалаа!</p>
   </aside>
 </section>
 
@@ -547,7 +515,7 @@ the best one only.</pre>
     b.innerHTML='<img src="../assets/logo.jpg" alt="AEPA logo"><span>AEPA</span>';
     s.appendChild(b);
     var f=document.createElement('div');f.className='foot';
-    f.innerHTML='<span>Session 2 · From prompt to workflow</span><span>'+String(n+1).padStart(2,'0')+'</span>';
+    f.innerHTML='<span>Session 2 · Inside the machine</span><span>'+String(n+1).padStart(2,'0')+'</span>';
     s.appendChild(f);
   });
 
